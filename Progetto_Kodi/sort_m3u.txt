@@ -1,0 +1,167 @@
+﻿import re
+
+# --- CONFIGURAZIONE ---
+FILE_M3U = "lista_kodi_auto.m3u"
+
+# Mappatura basata sulle tue immagini (Slug: (Nome, Categoria))
+# Le categorie ora seguono esattamente il tuo stile: Fornitore (specifica)
+ORDER_MAP = {
+   # --- SKY (intrattenimento) ---
+   "uno": ("SKY UNO", "SKY (intrattenimento)"),
+   "unoplus": ("SKY UNO +1", "SKY (intrattenimento)"),
+   "atlantic": ("SKY ATLANTIC", "SKY (intrattenimento)"),
+   "serie": ("SKY SERIE", "SKY (intrattenimento)"),
+   "collection": ("SKY COLLECTION", "SKY (intrattenimento)"),
+   "investigation": ("SKY INVESTIGATION", "SKY (intrattenimento)"),
+   "adventure": ("SKY ADVENTURE", "SKY (intrattenimento)"),
+   "crime": ("SKY CRIME", "SKY (intrattenimento)"),
+   "documentaries": ("SKY DOCUMENTARIES", "SKY (intrattenimento)"),
+   "nature": ("SKY NATURE", "SKY (intrattenimento)"),
+   "history": ("SKY HISTORY", "SKY (intrattenimento)"),
+   "comedycentral": ("COMEDY CENTRAL", "SKY (intrattenimento)"),
+   "arte": ("SKY ARTE", "SKY (intrattenimento)"),
+   "tg24": ("SKY TG24", "SKY (intrattenimento)"),
+   "mtv": ("MTV", "SKY (intrattenimento)"),
+
+   # --- SKY (cinema) ---
+   "cinemauno": ("SKY CINEMA UNO", "SKY (cinema)"),
+   "cinemacollection": ("SKY CINEMA COLLECTION", "SKY (cinema)"),
+   "cinemafamily": ("SKY CINEMA FAMILY", "SKY (cinema)"),
+   "cinemaaction": ("SKY CINEMA ACTION", "SKY (cinema)"),
+   "cinemasuspense": ("SKY CINEMA SUSPENSE", "SKY (cinema)"),
+   "cinemaromance": ("SKY CINEMA ROMANCE", "SKY (cinema)"),
+   "cinemadrama": ("SKY CINEMA DRAMA", "SKY (cinema)"),
+   "cinemacomedy": ("SKY CINEMA COMEDY", "SKY (cinema)"),
+   "cinemasteries": ("SKY CINEMA MASTERIES", "SKY (cinema)"),
+
+   # --- SKY (bambini) ---
+   "deakids": ("DEAKIDS", "SKY (bambini)"),
+   "nickjr": ("NICK JR", "SKY (bambini)"),
+   "nickelodeon": ("NICKELODEON", "SKY (bambini)"),
+   "cartoonnetwork": ("CARTOON NETWORK", "SKY (bambini)"),
+   "boomerang": ("BOOMERANG", "SKY (bambini)"),
+   "boing": ("BOING", "SKY (bambini)"),
+
+   # --- SKY (sport) ---
+   "sport24": ("SKY SPORT 24", "SKY (sport)"),
+   "sportuno": ("SKY SPORT UNO", "SKY (sport)"),
+   "sporttennis": ("SKY SPORT TENNIS", "SKY (sport)"),
+   "sportarena": ("SKY SPORT ARENA", "SKY (sport)"),
+   "sportbasket": ("SKY SPORT BASKET", "SKY (sport)"),
+   "sportmax": ("SKY SPORT MAX", "SKY (sport)"),
+   "sportf1": ("SKY SPORT F1", "SKY (sport)"),
+   "sportmotogp": ("SKY SPORT MOTOGP", "SKY (sport)"),
+   "sportgolf": ("SKY SPORT GOLF", "SKY (sport)"),
+   "sportlegend": ("SKY SPORT LEGEND", "SKY (sport)"),
+   "sportmix": ("SKY SPORT MIX", "SKY (sport)"),
+   "sportcalcio": ("SKY SPORT CALCIO", "SKY (sport)"),
+   "sport251": ("SKY SPORT 251", "SKY (sport)"),
+   "sport252": ("SKY SPORT 252", "SKY (sport)"),
+   "sport253": ("SKY SPORT 253", "SKY (sport)"),
+   "sport254": ("SKY SPORT 254", "SKY (sport)"),
+   "sport255": ("SKY SPORT 255", "SKY (sport)"),
+   "sport256": ("SKY SPORT 256", "SKY (sport)"),
+   "sport257": ("SKY SPORT 257", "SKY (sport)"),
+   "sport258": ("SKY SPORT 258", "SKY (sport)"),
+   "sport259": ("SKY SPORT 259", "SKY (sport)"),
+   "skych": ("SKY CH", "SKY (live durante eventi)"),
+
+   # --- DAZN ---
+   "dazn1": ("DAZN 1", "DAZN (canali live)"),
+   "dazn1extra": ("DAZN 1 EXTRA", "DAZN (canali live)"),
+   "daznch": ("DAZN CH", "DAZN (live durante eventi)"),
+   "seriebdctv": ("SERIE B DCTV", "DAZN (serie b)"),
+   "eurosport1": ("EUROSPORT 1", "DAZN (canali live)"),
+   "eurosport2": ("EUROSPORT 2", "DAZN (canali live)"),
+   "eurosport3": ("EUROSPORT 3", "DAZN (canali live)"),
+   "eurosport4": ("EUROSPORT 4", "DAZN (canali live)"),
+   "eurosport5": ("EUROSPORT 5", "DAZN (canali live)"),
+   "eurosport6": ("EUROSPORT 6", "DAZN (canali live)"),
+   "radioseriea": ("RADIO SERIE A", "DAZN (canali live)"),
+
+   # --- SKY (sport extra) ---
+   "sport24extra": ("SKY SPORT 24 EXTRA", "SKY (sport extra)"),
+   "sportunoextra": ("SKY SPORT UNO EXTRA", "SKY (sport extra)"),
+   "sportcalcioextra": ("SKY SPORT CALCIO EXTRA", "SKY (sport extra)"),
+   "sporttennisextra": ("SKY SPORT TENNIS EXTRA", "SKY (sport extra)"),
+   "sportarenaextra": ("SKY SPORT ARENA EXTRA", "SKY (sport extra)"),
+   "sportmaxextra": ("SKY SPORT MAX EXTRA", "SKY (sport extra)"),
+   "sportmixextra": ("SKY SPORT MIX EXTRA", "SKY (sport extra)"),
+   "sportbasketextra": ("SKY SPORT BASKET EXTRA", "SKY (sport extra)"),
+   "sportflextra": ("SKY SPORT F1 EXTRA", "SKY (sport extra)"),
+   "sportmotogpextra": ("SKY SPORT MOTOGP EXTRA", "SKY (sport extra)"),
+   "sportlegendextra": ("SKY SPORT LEGEND EXTRA", "SKY (sport extra)"),
+   "sportgolfextra": ("SKY SPORT GOLF EXTRA", "SKY (sport extra)"),
+
+   # --- ALTRO (lbatv / lastminute / esteri) ---
+   "lbatv1": ("LBA TV 1", "altro (lbatv)"),
+   "lbatv2": ("LBA TV 2", "altro (lbatv)"),
+   "lbatv3": ("LBA TV 3", "altro (lbatv)"),
+   "lbatv4": ("LBA TV 4", "altro (lbatv)"),
+   "lbatv5": ("LBA TV 5", "altro (lbatv)"),
+   "lastminute1": ("LAST MINUTE 1", "altro (lastminute)"),
+   "lastminute2": ("LAST MINUTE 2", "altro (lastminute)"),
+   "lastminute3": ("LAST MINUTE 3", "altro (lastminute)"),
+   "lastminute4": ("LAST MINUTE 4", "altro (lastminute)"),
+   "lastminute5": ("LAST MINUTE 5", "altro (lastminute)"),
+   "lastminute6": ("LAST MINUTE 6", "altro (lastminute)"),
+   "lastminute7": ("LAST MINUTE 7", "altro (lastminute)"),
+   "lastminute8": ("LAST MINUTE 8", "altro (lastminute)"),
+   "lastminute9": ("LAST MINUTE 9", "altro (lastminute)"),
+   "lastminute10": ("LAST MINUTE 10", "altro (lastminute)"),
+   "lastminute11": ("LAST MINUTE 11", "altro (lastminute)"),
+   "lastminute12": ("LAST MINUTE 12", "altro (lastminute)"),
+   "paramounta": ("PARAMOUNT A", "altro"),
+   "paramounteng": ("PARAMOUNT ENG", "altro (canali live)"),
+   "primeucl": ("PRIME UCL", "altro"),
+   "primeeng": ("PRIME ENG", "altro (canali live)"),
+   "bluesport1": ("BLUE SPORT 1", "altro"),
+   "bluesportf": ("BLUE SPORT F", "altro"),
+}
+
+def parse_m3u(filename):
+   try:
+       with open(filename, 'r', encoding='utf-8') as f:
+           content = f.read()
+   except FileNotFoundError:
+       return None, {}
+
+   entries = re.split(r'(?=#EXTINF)', content)
+   header = entries.pop(0) if entries and not entries[0].startswith("#EXTINF") else "#EXTM3U\n"
+   
+   parsed_data = {}
+   for entry in entries:
+       if not entry.strip(): continue
+       match = re.search(r'#EXTINF:-1,(.*)', entry)
+       if match:
+           raw_name = match.group(1).strip().lower().replace(" ", "")
+           parsed_data[raw_name] = entry.strip()
+           
+   return header, parsed_data
+
+def sort_and_save():
+   header, channels = parse_m3u(FILE_M3U)
+   if not header:
+       print(f"Errore: {FILE_M3U} non trovato.")
+       return
+   
+   with open(FILE_M3U, 'w', encoding='utf-8') as f:
+       f.write(header.strip() + "\n")
+       
+       for slug, (pretty_name, category) in ORDER_MAP.items():
+           if slug in channels:
+               entry = channels[slug]
+               # Applica esattamente la categoria come scritta in ORDER_MAP
+               entry = re.sub(r'#EXTINF:-1,', f'#EXTINF:-1 group-title="{category}",', entry)
+               entry = re.sub(r',.*', f', {pretty_name}', entry, count=1)
+               f.write(entry + "\n")
+               del channels[slug]
+
+       for remaining in channels.values():
+           entry = re.sub(r'#EXTINF:-1,', f'#EXTINF:-1 group-title="altro",', remaining)
+           f.write(entry + "\n")
+
+   print(f"Playlist aggiornata con categorie fedeli agli appunti.")
+
+if __name__ == "__main__":
+   sort_and_save()
