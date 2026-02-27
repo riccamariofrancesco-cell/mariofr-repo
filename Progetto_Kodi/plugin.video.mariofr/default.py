@@ -26,7 +26,7 @@ def run():
         if ch.get('license'):
             # Utilizziamo org.w3.clearkey come richiesto dagli standard moderni
             # Il formato 'sistema|chiave' risolve l'errore "not supported" del tuo log
-            li.setProperty('inputstream.adaptive.license_key', f"org.w3.clearkey|{ch['license']}")
+            li.setProperty('inputstream.adaptive.drm_legacy', f"org.w3.clearkey|{ch['license']}")
         
         # 3. MimeType (Sostituisce manifest_type che ora ignoriamo)
         # Kodi userà questo per capire se è DASH o HLS senza warning di deprecazione
