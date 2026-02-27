@@ -6,4 +6,4 @@ I am only suppoting my last version right now. Please update to see my last chan
 
 ## Reporting a Vulnerability
 
-To report a vulnerablility, please write an email to thorough.sloth.fyzk+adguard@mask.mek
+To report a vulnerablility, please write an email to thorough.sloth.fyzk+adguard@mask.me and include the Kodi LOG. Thank you all for supporting this project!
