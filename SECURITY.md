@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-I am only suppoting my last version right now. Please update to see my last changes.
+I am only suppoting my last version right now. Please update the add-on and the repository to see my last changes.
 
 ## Reporting a Vulnerability
 
