@@ -1,3 +1,3 @@
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
-Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.41 (KHTML, like Gecko) Large Screen Safari/537.41 LG Browser/7.00.00
+Mozilla/5.0%20%28Web0S%3B%20Linux/SmartTV%29%20AppleWebKit/537.41%20%28KHTML%2C%20like%20Gecko%29%20Large%20Screen%20Safari/537.41%20LG%20Browser/7.00.00%28LGE%3B%20WEBOS1%3B%2005.06.10%3B%201%29%3B%20webOS.TV-2014%3B%20LG%20NetCast.TV-2013%20Compatible%20%28LGE%2C%20WEBOS1%2C%20wireless%29
 Mozilla/5.0 (Apple TV; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1
