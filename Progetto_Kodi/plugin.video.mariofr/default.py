@@ -7,7 +7,7 @@ def run():
     handle = int(sys.argv[1])
     try:
         # Recupero del JSON generato dal tuo manager
-        req = urllib.request.Request(URL_JSON, headers={'User-Agent': 'Mozilla/5.0'})
+        req = urllib.request.Request(URL_JSON, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'})
         with urllib.request.urlopen(req) as r:
             data = json.loads(r.read().decode())
     except Exception as e:
