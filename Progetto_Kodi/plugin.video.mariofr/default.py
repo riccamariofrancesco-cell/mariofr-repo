@@ -50,6 +50,7 @@ def run():
         
         # Applica l'User-Agent scelto
         li.setProperty('inputstream.adaptive.stream_headers', f'User-Agent={selected_ua}')
+        li.setProperty('inputstream.adaptive.manifest_headers', f'User-Agent={selected_ua}')
         
         # DRM: Mantiene la tua logica org.w3.clearkey (fondamentale per la tua repo)
         if license_key:
