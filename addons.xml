@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="plugin.video.mariofr" name="MarioFR Stream" version="1.0.20" provider-name="MarioFR">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="inputstream.adaptive" version="19.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Streaming canali MarioFR</summary>
+        <description>Addon per la visione dei canali aggiornati via GitHub.</description>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="repository.mariofr" name="MarioFR Repo" version="1.0.9" provider-name="MarioFR">
+    <extension point="xbmc.addon.repository" name="MarioFR Repo">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Installa gli addon di MarioFR</summary>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+</addons>
