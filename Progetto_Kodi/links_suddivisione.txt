@@ -125,12 +125,12 @@ https://go.mariofr.com/lbatv5
 
 Altro (canali live)
 
-https://go.mariofr.com/primeeng
-https://go.mariofr.com/paramounteng
+https://go.mariofr.com/primeengDaValutare
+https://go.mariofr.com/paramountengDaValutare
 
 Altro (live durante eventi)
 
-https://go.mariofr.com/paramounta
-https://go.mariofr.com/bluesport1
-https://go.mariofr.com/bluesportf
-https://go.mariofr.com/primeucl
+https://go.mariofr.com/paramountaDaValutare
+https://go.mariofr.com/bluesport1DaValutare
+https://go.mariofr.com/bluesportfDaValutare
+https://go.mariofr.com/primeuclDaValutare
