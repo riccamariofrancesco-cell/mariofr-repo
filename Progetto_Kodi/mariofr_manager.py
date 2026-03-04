@@ -90,7 +90,7 @@ def run_all():
 
             if "%7C" in final_url:
                 stream_url, params = final_url.split("%7C", 1)
-                clearkey_val = params.replace("clearkey%3D", "").replace("ck%3D", "").strip()
+                clearkey_val = params.replace("clearkey=", "").replace("ck=", "").strip()
                 ch_entry.update({
                     "url": stream_url,
                     "license": clearkey_val,
