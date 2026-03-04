@@ -211,13 +211,13 @@
     },
     {
         "name": "SPORT 24",
-        "url": "https://g006-lin-it-cmaf-prd-ak.pcdn07.cssott02.com/v~a-0-0_e~1772323929_s~fed24020-baed-4315-b682-7d3cadf17aaf_u~679e54eb1217924231489b162862356605f5ef451297b5af838625f5ce918be5_l~56_x~b01079ff3089de745afa26ecdf59965fd3b00b0702c0c4119d0ee7afffbf5507/nowitlin1/Content/CMAF_CTR_S1/Live/channel(skysport24)/master_2hr-aac.mpd",
+        "url": "https://g006-lin-it-cmaf-prd-ak.pcdn07.cssott02.com/v~a-0-0_e~1772639746_s~f2c31b57-6b5f-4aad-9e92-7e39995dfe17_u~351cccfd32ab64c8f57191ea9c40032d77b474346d6f46e4b7b022f835cbb90d_l~56_x~39941b1c4a4e88cd4e77366aa9baa64f441e96cd88a55c25000595b53eaec417/nowitlin1/Content/CMAF_CTR_S1/Live/channel(skysport24)/master_2hr-aac.mpd",
         "license": "1115715a0176a5cc5c4a99d18aad46b8:945885544539726f423879d634f189ed",
         "manifest_type": "mpd"
     },
     {
         "name": "SPORT UNO",
-        "url": "https://g003-lin-it-cmaf-prd-ak.pcdn07.cssott02.com/v~a-0-0_e~1772408563_s~c515b1f8-4fa9-4272-b01e-01f6364e8bc1_u~4a295485b53ba8de09691a296e824a2bb9be752c0b804ef6a262c5b49b86588e_l~57_x~8e1007f3d77267acc0c86a42cc5611c51bcd6a25afb507e431827fa38ff4d494/nowitlin1/Content/CMAF_CTR_S1/Live/channel(skysportuno)/master_2hr-aac.mpd",
+        "url": "https://g006-lin-it-cmaf-prd-cf.pcdn07.cssott02.com/v~1-0-0_e~1772639746_f~0_g~1_s~130f4194-4b46-4e50-906c-ae9be22d7da2_u~351cccfd32ab64c8f57191ea9c40032d77b474346d6f46e4b7b022f835cbb90d_k~A_l~57_x~d463f53c5de44c20f65977d4c120bfea/nowitlin1/Content/CMAF_CTR_S1/Live/channel(skysportuno)/master_2hr-aac.mpd",
         "license": "11155c01708d8cfb8c4ab9eba61cd667:1d0e60aa72557332fe3c19c10c799e44",
         "manifest_type": "mpd"
     },
