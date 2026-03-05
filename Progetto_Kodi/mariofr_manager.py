@@ -129,7 +129,7 @@ def run_all():
         except Exception as e:
             print(f" -> ERRORE imprevisto su {url}: {e}")
         
-        if i < len(raw_links) - 1:
+        if i < len(lines) - 1:
             time.sleep(RITARDO_TRA_LINK)
 
     with open(PLAYLIST_JSON, "w", encoding="utf-8") as outfile:
