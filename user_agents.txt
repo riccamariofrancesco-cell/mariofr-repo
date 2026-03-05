@@ -1,3 +1,2 @@
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
-referer=https://mediahosting.space/&origin=https://mediahosting.space&user-agent=Mozilla/5.0
-Referer=https://amstaff.city/&Origin=https://amstaff.city&User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Referer=https://vavoo.to/&Origin=https://vavoo.to&Connection=keep-alive&User-Agent=ipad
