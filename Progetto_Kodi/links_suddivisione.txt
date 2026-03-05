@@ -1,5 +1,4 @@
 DAZN (canali live)
-
 https://go.mariofr.com/dazn1
 https://go.mariofr.com/dazn1extrav6
 https://go.mariofr.com/dazn2extrav6
@@ -17,18 +16,12 @@ https://go.mariofr.com/eurosport5
 https://go.mariofr.com/eurosport5extrav6tim
 https://go.mariofr.com/eurosport6
 https://go.mariofr.com/eurosport6extrav6tim
-
 DAZN (serie b)
-
 https://go.mariofr.com/seriebdctv
-
 DAZN (live durante eventi)
-
 https://go.mariofr.com/daznch
 https://go.mariofr.com/daznmatchtimeextrav7
-
 SKY (intrattenimento)
-
 https://go.mariofr.com/tg24
 https://go.mariofr.com/tg24extrav6
 https://go.mariofr.com/tg24extrav7
@@ -57,9 +50,7 @@ https://go.mariofr.com/arte
 https://go.mariofr.com/arteextrav6
 https://go.mariofr.com/arteextrav7
 https://go.mariofr.com/mtv
-
 SKY (cinema)
-
 https://go.mariofr.com/cinemauno
 https://go.mariofr.com/cinemaunoextrav6
 https://go.mariofr.com/cinemaunoextrav7
@@ -88,9 +79,7 @@ https://go.mariofr.com/cinemacomedy
 https://go.mariofr.com/cinemacomedyextrav6
 https://go.mariofr.com/cinemacomedyextrav7
 https://go.mariofr.com/cinemastories
-
 SKY (sport)
-
 https://go.mariofr.com/sport24
 https://go.mariofr.com/sport24extrav6
 https://go.mariofr.com/sportuno
@@ -129,22 +118,16 @@ https://go.mariofr.com/sport256
 https://go.mariofr.com/sport257
 https://go.mariofr.com/sport258
 https://go.mariofr.com/sport259
-
 SKY (live durante eventi)
-
 https://go.mariofr.com/skych
-
 SKY (bambini)
-
 https://go.mariofr.com/deakids
 https://go.mariofr.com/nickjr
 https://go.mariofr.com/nickelodeon
 https://go.mariofr.com/cartoonnetwork
 https://go.mariofr.com/boomerang
 https://go.mariofr.com/boing
-
 SKY (primafila)
-
 https://go.mariofr.com/primafila1extrav6
 https://go.mariofr.com/primafila2extrav6
 https://go.mariofr.com/primafila3extrav6
@@ -155,9 +138,7 @@ https://go.mariofr.com/primafila7extrav6
 https://go.mariofr.com/primafila8extrav6
 https://go.mariofr.com/primafila9extrav6
 https://go.mariofr.com/primafila10extrav6
-
 Altro (last minute)
-
 https://go.mariofr.com/lastminute1
 https://go.mariofr.com/lastminute2
 https://go.mariofr.com/lastminute3
@@ -170,17 +151,13 @@ https://go.mariofr.com/lastminute9
 https://go.mariofr.com/lastminute10
 https://go.mariofr.com/lastminute11
 https://go.mariofr.com/lastminute12
-
 Altro (lbatv)
-
 https://go.mariofr.com/lbatv1
 https://go.mariofr.com/lbatv2
 https://go.mariofr.com/lbatv3
 https://go.mariofr.com/lbatv4
 https://go.mariofr.com/lbatv5
-
 Altro (canali live)
-
 https://go.mariofr.com/rsila1extrav6
 https://go.mariofr.com/rsila1extrav7
 https://go.mariofr.com/rsila2extrav6
@@ -189,10 +166,9 @@ https://go.mariofr.com/intertvextrav6
 https://go.mariofr.com/telefoggiaextrav6
 https://go.mariofr.com/primeengDaValutare
 https://go.mariofr.com/paramountengDaValutare
-
 Altro (live durante eventi)
-
 https://go.mariofr.com/paramountaDaValutare
 https://go.mariofr.com/bluesport1DaValutare
 https://go.mariofr.com/bluesportfDaValutare
 https://go.mariofr.com/primeuclDaValutare
+FINE

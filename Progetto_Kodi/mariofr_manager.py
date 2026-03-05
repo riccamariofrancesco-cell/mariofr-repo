@@ -10,7 +10,7 @@ from urllib.parse import unquote
 # --- CONFIGURAZIONE UTENTE ---
 USER = "riccamariofrancesco-cell"
 REPO = "mariofr-repo"
-INPUT_FILE = "links.txt"
+INPUT_FILE = "links_suddivisione.txt"
 PLAYLIST_JSON = "playlist.json"
 ADDON_ID = "plugin.video.mariofr"
 REPO_ID = "repository.mariofr"
@@ -68,16 +68,28 @@ def run_all():
     print("Modalità 'Lenta e Sicura' attivata. Lo script prenderà tutto il tempo necessario.\n")
 
     with open(INPUT_FILE, "r", encoding="utf-8") as infile:
-        raw_links = [line.strip() for line in infile if line.strip() and not line.startswith("#")]
+        lines = [line.strip() for line in infile if line.strip() and not line.startswith("#")]
 
-    if not raw_links:
+    raw_items = []
+    current_category = "Altro"
+    for line in lines:
+        if line == "FINE":
+            break
+        if not line.startswith("http"):
+            current_category = line
+        else:
+            raw_items.append({"url": line, "category": current_category})
+
+    if not raw_items:
         print("Nessun link trovato.")
         return
 
     channels_list = []
 
-    for i, url in enumerate(raw_links):
-        print(f"[{i+1}/{len(raw_links)}] Risoluzione di: {url}...")
+    for i, item in enumerate(raw_items):
+        url = item["url"]
+        category = item["category"]
+        print(f"[{i+1}/{len(lines)}] Risoluzione di: {url}...")
         try:
             response = http.request('GET', url, headers=HEADERS, redirect=True)
             final_url = response.geturl()
@@ -86,7 +98,7 @@ def run_all():
             display_name = format_channel_name(channel_slug)
             url_lower = final_url.lower()
 
-            ch_entry = {"name": display_name, "url": "", "license": "", "manifest_type": ""}
+            ch_entry = {"name": display_name, "url": "", "license": "", "manifest_type": "", "category": category}
 
             if "%7C" in final_url:
                 stream_url, params = final_url.split("%7C", 1)
