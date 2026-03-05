@@ -118,7 +118,9 @@ def run():
         xbmcplugin.setResolvedUrl(handle, True, li)
         return
 
-    # --- LOGICA LISTA CANALI ---
+    # --- LOGICA NAVIGAZIONE A CARTELLE ---
+    action = params.get('action')
+    
     try:
         req = urllib.request.Request(URL_JSON, headers={'User-Agent': UA_FALLBACK})
         with urllib.request.urlopen(req) as r:
@@ -126,16 +128,36 @@ def run():
     except:
         data = []
 
-    for ch in data:
-        li = xbmcgui.ListItem(label=ch['name'])
-        li.setInfo('video', {'title': ch['name']})
-        li.setArt({'icon': 'DefaultVideo.png'})
-        li.setProperty('IsPlayable', 'true')
-        
-        lic = ch.get('license', '')
-        query = {'action': 'play', 'url': ch['url'], 'license': lic}
-        plugin_url = f"{sys.argv[0]}?{urllib.parse.urlencode(query)}"
-        xbmcplugin.addDirectoryItem(handle, plugin_url, li, isFolder=False)
+    if not action:
+        # MENU PRINCIPALE: Mostra le categorie come cartelle
+        categories = []
+        for ch in data:
+            cat = ch.get('category', 'Altro')
+            if cat not in categories:
+                categories.append(cat)
+
+        for cat in categories:
+            li = xbmcgui.ListItem(label=cat)
+            li.setArt({'icon': 'DefaultFolder.png'}) # Icona standard per le cartelle
+            query = {'action': 'category', 'category': cat}
+            plugin_url = f"{sys.argv[0]}?{urllib.parse.urlencode(query)}"
+            # isFolder=True dice a Kodi che questo è un sottomenu navigabile
+            xbmcplugin.addDirectoryItem(handle, plugin_url, li, isFolder=True)
+
+    elif action == 'category':
+        # SOTTOMENU: Mostra solo i canali appartenenti alla categoria cliccata
+        selected_cat = params.get('category')
+        for ch in data:
+            if ch.get('category', 'Altro') == selected_cat:
+                li = xbmcgui.ListItem(label=ch['name'])
+                li.setInfo('video', {'title': ch['name']})
+                li.setArt({'icon': 'DefaultVideo.png'})
+                li.setProperty('IsPlayable', 'true')
+                
+                lic = ch.get('license', '')
+                query = {'action': 'play', 'url': ch['url'], 'license': lic}
+                plugin_url = f"{sys.argv[0]}?{urllib.parse.urlencode(query)}"
+                xbmcplugin.addDirectoryItem(handle, plugin_url, li, isFolder=False)
 
     xbmcplugin.endOfDirectory(handle)
 
