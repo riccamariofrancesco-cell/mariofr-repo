@@ -20,7 +20,7 @@ def get_real_vavoo_url(url):
     """
     Risolve il redirect se l'URL contiene 'vavoo'.
     """
-    if not isinstance(url, str) or "vavoo" not in url():
+    if not isinstance(url, str) or "vavoo" not in url.lower():
         return url
 
     try:
