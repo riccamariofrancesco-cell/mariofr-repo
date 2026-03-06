@@ -51,7 +51,6 @@ def run():
     
     # --- LOGICA DI RIPRODUZIONE ---
     if params.get('action') == 'play':
-        url = params.get('url')
         url = get_real_vavoo_url(url)
         license_key = params.get('license')
         url_lower = url.lower()
