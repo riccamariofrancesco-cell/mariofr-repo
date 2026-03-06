@@ -16,6 +16,24 @@ UA_FALLBACK = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHT
 def logga(msg):
     xbmc.log(f"MARIOFR_REPO: {msg}", xbmc.LOGINFO)
 
+def get_real_vavoo_url(url):
+    """
+    Risolve il redirect se l'URL contiene 'vavoo'.
+    """
+    if not isinstance(url, str) or "vavoo" not in url.lower():
+        return url
+
+    try:
+        # Usiamo il tuo UA_FALLBACK già definito in alto
+        req = urllib.request.Request(url, headers={'User-Agent': UA_FALLBACK})
+        response = urllib.request.urlopen(req, timeout=5)
+        final_url = response.geturl()
+        logga(f"Redirect Vavoo risolto: {url} -> {final_url}")
+        return final_url
+    except Exception as e:
+        logga(f"Errore nel risolvere il link Vavoo: {e}")
+        return url
+
 def get_remote_uas():
     # Scarica gli User Agent dal tuo file TXT su GitHub
     try:
@@ -34,6 +52,7 @@ def run():
     # --- LOGICA DI RIPRODUZIONE ---
     if params.get('action') == 'play':
         url = params.get('url')
+        url = get_real_vavoo_url(url)
         license_key = params.get('license')
         url_lower = url.lower()
         
