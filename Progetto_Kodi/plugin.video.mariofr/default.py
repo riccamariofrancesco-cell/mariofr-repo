@@ -88,9 +88,9 @@ def run():
             logga("Auto-Header Starz rilevato")
         
         elif "vavoo" in url_lower:
-            ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+            ua = "Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1"
             host = "https://vavoo.to"
-            auto_headers = f'User-Agent={ua}&Referer={host}/&Origin={host}'
+            auto_headers = f'User-Agent={ua}&Referer={host}/&Origin={host}&Connection=keep-alive'
             logga("Auto-Header VAVOO rilevato")
 
         # --- SELEZIONE MANUALE SE NON AUTOMATICO ---
