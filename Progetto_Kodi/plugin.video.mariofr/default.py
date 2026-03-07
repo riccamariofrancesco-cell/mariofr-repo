@@ -35,9 +35,12 @@ def run():
     
     # --- LOGICA DI RIPRODUZIONE ---
     if params.get('action') == 'play':
-        url = params.get('url')
+        original_url = params.get('url')
         license_key = params.get('license')
         url_lower = url.lower()
+
+        if "vavoo" in original_url:
+            
         
         # --- LOGICA AUTOMATICA HEADERS ---
         auto_headers = None
