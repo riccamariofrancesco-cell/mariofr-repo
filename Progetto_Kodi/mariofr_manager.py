@@ -16,7 +16,8 @@ ADDON_ID = "plugin.video.mariofr"
 REPO_ID = "repository.mariofr"
 
 # --- CONFIGURAZIONE RETE (IDENTICA AL TUO VECCHIO PYTHON) ---
-RITARDO_TRA_LINK = 5
+# --- CAMBIARE RITARDO_TRA_LINK IN BASE ALLA PROPRIA CONNESSIONE (default 2 sec) ---
+RITARDO_TRA_LINK = 2
 retry_strategy = Retry(
     total=15,
     redirect=20,
