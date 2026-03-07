@@ -5,11 +5,8 @@ import urllib.parse
 import xbmcgui
 import xbmcplugin
 import xbmc
-import urllib3
 
-# VERSIONE 1.0.30 - 2026-03-07
-
-http = urllib3.PoolManager(cert_reqs='CERT_NONE')
+# VERSIONE 1.0.31 - 2026-03-07
 
 # URL ORIGINALI DELLA TUA REPO
 URL_JSON = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
@@ -44,8 +41,8 @@ def run():
         url_lower = url.lower()
 
         if original_url and "vavoo" in original_url:
-            response = http.request('GET', original_url, redirect=False)
-            url = response.headers.get('Location', original_url)
+            with urllib.request.urlopen(original_url) as response:
+            url = response.geturl()
         
         # --- LOGICA AUTOMATICA HEADERS ---
         auto_headers = None
