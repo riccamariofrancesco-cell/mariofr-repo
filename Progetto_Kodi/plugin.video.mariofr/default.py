@@ -6,7 +6,7 @@ import xbmcgui
 import xbmcplugin
 import xbmc
 
-# VERSIONE 1.0.31 - 2026-03-07
+# VERSIONE 1.0.32 - 2026-03-07
 
 # URL ORIGINALI DELLA TUA REPO
 URL_JSON = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
@@ -42,7 +42,7 @@ def run():
 
         if original_url and "vavoo" in original_url:
             with urllib.request.urlopen(original_url) as response:
-            url = response.geturl()
+                url = response.geturl()
         
         # --- LOGICA AUTOMATICA HEADERS ---
         auto_headers = None
