@@ -6,7 +6,7 @@ import xbmcgui
 import xbmcplugin
 import xbmc
 
-# VERSIONE 1.0.27 - 2026-03-07
+# VERSIONE 1.0.28 - 2026-03-07
 
 # URL ORIGINALI DELLA TUA REPO
 URL_JSON = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
@@ -88,7 +88,7 @@ def run():
             logga("Auto-Header Starz rilevato")
         
         elif "vavoo" in url_lower:
-            ua = "Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1"
+            ua = "VAVOO/2.6"
             host = "https://vavoo.to"
             auto_headers = f'User-Agent={ua}&Referer={host}/&Origin={host}&Connection=keep-alive'
             logga("Auto-Header VAVOO rilevato")
