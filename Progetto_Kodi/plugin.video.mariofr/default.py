@@ -6,7 +6,7 @@ import xbmcgui
 import xbmcplugin
 import xbmc
 
-# VERSIONE 1.0.26 - 2026-03-07
+# VERSIONE 1.0.27 - 2026-03-07
 
 # URL ORIGINALI DELLA TUA REPO
 URL_JSON = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
