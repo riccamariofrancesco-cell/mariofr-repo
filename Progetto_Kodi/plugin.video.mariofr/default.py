@@ -6,6 +6,8 @@ import xbmcgui
 import xbmcplugin
 import xbmc
 
+# VERSIONE 1.0.24 - 2026-03-07
+
 # URL ORIGINALI DELLA TUA REPO
 URL_JSON = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
 URL_UA_TXT = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/user_agents.txt"
@@ -17,9 +19,7 @@ def logga(msg):
     xbmc.log(f"MARIOFR_REPO: {msg}", xbmc.LOGINFO)
 
 def get_real_vavoo_url(url):
-    """
-    Risolve il redirect se l'URL contiene 'vavoo'.
-    """
+    
     if not isinstance(url, str) or "vavoo" not in url.lower():
         return url
 
