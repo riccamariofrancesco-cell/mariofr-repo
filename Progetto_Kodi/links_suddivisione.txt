@@ -1,5 +1,5 @@
 DAZN (canali live)
-https://go.mariofr.com/dazn1
+https://go.mariofr.com/dazn1DaValutare
 https://go.mariofr.com/dazn1extrav6
 https://go.mariofr.com/dazn2extrav6
 https://go.mariofr.com/eurosport1
@@ -16,6 +16,8 @@ https://go.mariofr.com/eurosport5
 https://go.mariofr.com/eurosport5extrav6tim
 https://go.mariofr.com/eurosport6
 https://go.mariofr.com/eurosport6extrav6tim
+https://go.mariofr.com/intertv
+https://go.mariofr.com/intertvextrav6
 DAZN (serie b)
 https://go.mariofr.com/seriebdctv
 DAZN (live durante eventi)
@@ -168,7 +170,6 @@ https://go.mariofr.com/rsila1extrav6
 https://go.mariofr.com/rsila1extrav7
 https://go.mariofr.com/rsila2extrav6
 https://go.mariofr.com/rsila2extrav7
-https://go.mariofr.com/intertvextrav6
 https://go.mariofr.com/telefoggiaextrav6
 https://go.mariofr.com/primeengDaValutare
 https://go.mariofr.com/paramountengDaValutare
