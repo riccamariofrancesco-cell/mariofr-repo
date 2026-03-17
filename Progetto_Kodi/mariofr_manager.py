@@ -15,9 +15,9 @@ PLAYLIST_JSON = "playlist.json"
 ADDON_ID = "plugin.video.mariofr"
 REPO_ID = "repository.mariofr"
 
-# --- CONFIGURAZIONE RETE (IDENTICA AL TUO VECCHIO PYTHON) ---
-# --- CAMBIARE RITARDO_TRA_LINK IN BASE ALLA PROPRIA CONNESSIONE (default 2 sec) ---
-RITARDO_TRA_LINK = 2
+# --- CONFIGURAZIONE RETE (IDENTICA AL VECCHIO PYTHON) ---
+# --- CAMBIARE RITARDO_TRA_LINK IN BASE ALLA PROPRIA CONNESSIONE (default 0 sec) ---
+RITARDO_TRA_LINK = 0
 retry_strategy = Retry(
     total=15,
     redirect=20,
@@ -38,8 +38,8 @@ HEADERS = {
 }
 
 def format_channel_name(slug):
-    """Trasforma lo slug del link in un nome leggibile (Logica originale)."""
-    name = slug.replace("extra", " EXTRA").replace("ucl", " UCL").replace("daznch", "DAZN CH").replace("minute", " MINUTE ").replace("seriea", " SERIE A").replace("bdctv", " B DCTV").replace("24", " 24").replace("plus", " PLUS").replace("central", " CENTRAL").replace("auno", "A UNO").replace("acollection", "A COLLECTION").replace("afamily", "A FAMILY").replace("aaction", "A ACTION").replace("asuspense", "A SUSPENSE").replace("aromance", "A ROMANCE").replace("adrama", "A DRAMA").replace("acomedy", "A COMEDY").replace("astories", "A STORIES").replace("tuno", "T UNO").replace("tcalcio", "T CALCIO").replace("ttennis", "T TENNIS").replace("tarena", "T ARENA").replace("tbasket", "T BASKET").replace("tmax", "T MAX").replace("tf1", "T F1").replace("tmotogp", "T MOTOGP").replace("tgolf", "T GOLF").replace("tlegend", "T LEGEND").replace("tmix", "T MIX").replace("t251", "T 251").replace("t252", "T 252").replace("t253", "T 253").replace("t254", "T 254").replace("t255", "T 255").replace("t256", "T 256").replace("t257", "T 257").replace("t258", "T 258").replace("t259", "T 259").replace("nnetwork", "N NETWORK").replace("tv1", " TV 1").replace("tv2", " TV 2").replace("tv3", " TV 3").replace("tv4", " TV 4").replace("tv5", " TV 5").replace("eng", " ENG").replace("DaValutare", " OFFLINE").replace("v6", " VAVOO 6").replace("v7", " VAVOO 7").replace("matchtime", " MATCH TIME")
+    # Trasforma lo slug del link in un nome leggibile
+    name = slug.replace("extra", " EXTRA").replace("ucl", " UCL").replace("daznch", "DAZN CH").replace("minute", " MINUTE ").replace("seriea", " SERIE A").replace("bdctv", " B DCTV").replace("24", " 24").replace("plus", " PLUS").replace("central", " CENTRAL").replace("auno", "A UNO").replace("acollection", "A COLLECTION").replace("afamily", "A FAMILY").replace("aaction", "A ACTION").replace("asuspense", "A SUSPENSE").replace("aromance", "A ROMANCE").replace("adrama", "A DRAMA").replace("acomedy", "A COMEDY").replace("astories", "A STORIES").replace("tuno", "T UNO").replace("tcalcio", "T CALCIO").replace("ttennis", "T TENNIS").replace("tarena", "T ARENA").replace("tbasket", "T BASKET").replace("tmax", "T MAX").replace("tf1", "T F1").replace("tmotogp", "T MOTOGP").replace("tgolf", "T GOLF").replace("tlegend", "T LEGEND").replace("tmix", "T MIX").replace("t251", "T 251").replace("t252", "T 252").replace("t253", "T 253").replace("t254", "T 254").replace("t255", "T 255").replace("t256", "T 256").replace("t257", "T 257").replace("t258", "T 258").replace("t259", "T 259").replace("nnetwork", "N NETWORK").replace("tv1", " TV 1").replace("tv2", " TV 2").replace("tv3", " TV 3").replace("tv4", " TV 4").replace("tv5", " TV 5").replace("eng", " ENG").replace("DaValutare", " OFFLINE").replace("v6", " VAVOO 6").replace("v7", " VAVOO 7").replace("matchtime", " MATCH TIME").replace("mediahosting", " MEDIAHOSTING").replace("intertv", " INTERTV")
     return name.strip().upper()
 
 def create_zip(addon_id):
