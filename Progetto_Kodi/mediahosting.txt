@@ -1,0 +1,162 @@
+300 premiersports1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/300/index.m3u8?token=T4Nz6WCt2Uwlqma4
+301 premiersports2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/301/index.m3u8?token=T4Nz6WCt2Uwlqma4
+302 skysportsmixextramediahosting
+https://cc3.screenistream.xyz:8080/stream/302/index.m3u8?token=T4Nz6WCt2Uwlqma4
+303 movistar1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/303/index.m3u8?token=T4Nz6WCt2Uwlqma4
+304 movistar2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/304/index.m3u8?token=T4Nz6WCt2Uwlqma4
+305 movistar3extramediahosting
+https://cc3.screenistream.xyz:8080/stream/305/index.m3u8?token=T4Nz6WCt2Uwlqma4
+306 laligatv1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/306/index.m3u8?token=T4Nz6WCt2Uwlqma4
+307 dazn1spagnaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/307/index.m3u8?token=T4Nz6WCt2Uwlqma4
+308 movistarplusvamosextramediahosting
+https://cc3.screenistream.xyz:8080/stream/308/index.m3u8?token=T4Nz6WCt2Uwlqma4
+309 movistarpluslaligaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/309/index.m3u8?token=T4Nz6WCt2Uwlqma4
+310 daznlaligaspagnaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/310/index.m3u8?token=T4Nz6WCt2Uwlqma4
+311 movistarplusdeportesextramediahosting
+https://cc3.screenistream.xyz:8080/stream/311/index.m3u8?token=T4Nz6WCt2Uwlqma4
+312 daznf1(spagna?)extramediahosting
+https://cc3.screenistream.xyz:8080/stream/312/index.m3u8?token=T4Nz6WCt2Uwlqma4
+313 dazn2(spagna?)extramediahosting
+https://cc3.screenistream.xyz:8080/stream/313/index.m3u8?token=T4Nz6WCt2Uwlqma4
+314 movistarplusgolfextramediahosting
+https://cc3.screenistream.xyz:8080/stream/314/index.m3u8?token=T4Nz6WCt2Uwlqma4
+315 movistarlaligahdr1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/315/index.m3u8?token=T4Nz6WCt2Uwlqma4
+316 movistarlaligahdr2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/316/index.m3u8?token=T4Nz6WCt2Uwlqma4
+317 movistarlaliga2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/317/index.m3u8?token=T4Nz6WCt2Uwlqma4
+318 movistarlaliga2n2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/318/index.m3u8?token=T4Nz6WCt2Uwlqma4
+319 movistar4extramediahosting
+https://cc3.screenistream.xyz:8080/stream/319/index.m3u8?token=T4Nz6WCt2Uwlqma4
+320 movistar5extramediahosting
+https://cc3.screenistream.xyz:8080/stream/320/index.m3u8?token=T4Nz6WCt2Uwlqma4
+321 laligatv2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/321/index.m3u8?token=T4Nz6WCt2Uwlqma4
+322 placeholder322mediahosting
+https://cc3.screenistream.xyz:8080/stream/322/index.m3u8?token=T4Nz6WCt2Uwlqma4
+323 movistarlaliga2n3extramediahosting
+https://cc3.screenistream.xyz:8080/stream/323/index.m3u8?token=T4Nz6WCt2Uwlqma4
+324 daznlaliga2spagnaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/324/index.m3u8?token=T4Nz6WCt2Uwlqma4
+325 dazn1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/325/index.m3u8?token=T4Nz6WCt2Uwlqma4
+326 sportunoextramediahosting
+https://cc3.screenistream.xyz:8080/stream/326/index.m3u8?token=T4Nz6WCt2Uwlqma4
+327 sportf1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/327/index.m3u8?token=T4Nz6WCt2Uwlqma4
+328 sportcalcion1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/328/index.m3u8?token=T4Nz6WCt2Uwlqma4
+329 sporttennisextramediahosting
+https://cc3.screenistream.xyz:8080/stream/329/index.m3u8?token=T4Nz6WCt2Uwlqma4
+330 sportmotogpextramediahosting
+https://cc3.screenistream.xyz:8080/stream/330/index.m3u8?token=T4Nz6WCt2Uwlqma4
+331 sportarenaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/331/index.m3u8?token=T4Nz6WCt2Uwlqma4
+332 sportmaxextramediahosting
+https://cc3.screenistream.xyz:8080/stream/332/index.m3u8?token=T4Nz6WCt2Uwlqma4
+333 sportcalcion2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/333/index.m3u8?token=T4Nz6WCt2Uwlqma4
+334 sport24extramediahosting
+https://cc3.screenistream.xyz:8080/stream/334/index.m3u8?token=T4Nz6WCt2Uwlqma4
+335 sportbasketextramediahosting
+https://cc3.screenistream.xyz:8080/stream/335/index.m3u8?token=T4Nz6WCt2Uwlqma4
+336 sportlegendextramediahosting
+https://cc3.screenistream.xyz:8080/stream/336/index.m3u8?token=T4Nz6WCt2Uwlqma4
+337 sportmixextramediahosting
+https://cc3.screenistream.xyz:8080/stream/337/index.m3u8?token=T4Nz6WCt2Uwlqma4
+338 novasportsextramediahosting
+https://cc3.screenistream.xyz:8080/stream/338/index.m3u8?token=T4Nz6WCt2Uwlqma4
+339 novasportspremierleagueextramediahosting
+https://cc3.screenistream.xyz:8080/stream/339/index.m3u8?token=T4Nz6WCt2Uwlqma4
+340 cosmotesport1hdextramediahosting
+https://cc3.screenistream.xyz:8080/stream/340/index.m3u8?token=T4Nz6WCt2Uwlqma4
+341 cosmotesport2hdextramediahosting
+https://cc3.screenistream.xyz:8080/stream/341/index.m3u8?token=T4Nz6WCt2Uwlqma4
+342 cosmotesport3hdextramediahosting
+https://cc3.screenistream.xyz:8080/stream/342/index.m3u8?token=T4Nz6WCt2Uwlqma4
+343 eurosport1spagnaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/343/index.m3u8?token=T4Nz6WCt2Uwlqma4
+344 eurosport2spagnaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/344/index.m3u8?token=T4Nz6WCt2Uwlqma4
+345 novasports1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/345/index.m3u8?token=T4Nz6WCt2Uwlqma4
+346 novasports2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/346/index.m3u8?token=T4Nz6WCt2Uwlqma4
+347 novasports3extramediahosting
+https://cc3.screenistream.xyz:8080/stream/347/index.m3u8?token=T4Nz6WCt2Uwlqma4
+348 novasports4extramediahosting
+https://cc3.screenistream.xyz:8080/stream/348/index.m3u8?token=T4Nz6WCt2Uwlqma4
+349 novasports5extramediahosting
+https://cc3.screenistream.xyz:8080/stream/349/index.m3u8?token=T4Nz6WCt2Uwlqma4
+350 novasports6extramediahosting
+https://cc3.screenistream.xyz:8080/stream/350/index.m3u8?token=T4Nz6WCt2Uwlqma4
+351 novasportsext1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/351/index.m3u8?token=T4Nz6WCt2Uwlqma4
+352 novasportsext2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/352/index.m3u8?token=T4Nz6WCt2Uwlqma4
+353 novasportsext3extramediahosting
+https://cc3.screenistream.xyz:8080/stream/353/index.m3u8?token=T4Nz6WCt2Uwlqma4
+354 novasportsext4extramediahosting
+https://cc3.screenistream.xyz:8080/stream/354/index.m3u8?token=T4Nz6WCt2Uwlqma4
+355 novasportsnewsextramediahosting
+https://cc3.screenistream.xyz:8080/stream/355/index.m3u8?token=T4Nz6WCt2Uwlqma4
+356 novasportsprimeextramediahosting
+https://cc3.screenistream.xyz:8080/stream/356/index.m3u8?token=T4Nz6WCt2Uwlqma4
+357 novasportsstartextramediahosting
+https://cc3.screenistream.xyz:8080/stream/357/index.m3u8?token=T4Nz6WCt2Uwlqma4
+358 ligue1plusextramediahosting
+https://cc3.screenistream.xyz:8080/stream/358/index.m3u8?token=T4Nz6WCt2Uwlqma4
+359 ligue1plus2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/359/index.m3u8?token=T4Nz6WCt2Uwlqma4
+360 ligue1plus3extramediahosting
+https://cc3.screenistream.xyz:8080/stream/360/index.m3u8?token=T4Nz6WCt2Uwlqma4
+361 ligue1plus2n2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/361/index.m3u8?token=T4Nz6WCt2Uwlqma4
+362 ligue1plusn2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/362/index.m3u8?token=T4Nz6WCt2Uwlqma4
+363 ligue1plus3n2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/363/index.m3u8?token=T4Nz6WCt2Uwlqma4
+364 ligue1plus5extramediahosting
+https://cc3.screenistream.xyz:8080/stream/364/index.m3u8?token=T4Nz6WCt2Uwlqma4
+365 ligue1plusn3extramediahosting
+https://cc3.screenistream.xyz:8080/stream/365/index.m3u8?token=T4Nz6WCt2Uwlqma4
+366 ligue1plusn4extramediahosting
+https://cc3.screenistream.xyz:8080/stream/366/index.m3u8?token=T4Nz6WCt2Uwlqma4
+367 beinsports1franciaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/367/index.m3u8?token=T4Nz6WCt2Uwlqma4
+368 beinsports2franciaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/368/index.m3u8?token=T4Nz6WCt2Uwlqma4
+369 beinsports3franciaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/369/index.m3u8?token=T4Nz6WCt2Uwlqma4
+370 canalplusfootextramediahosting
+https://cc3.screenistream.xyz:8080/stream/370/index.m3u8?token=T4Nz6WCt2Uwlqma4
+371 rmcsport1extramediahosting
+https://cc3.screenistream.xyz:8080/stream/371/index.m3u8?token=T4Nz6WCt2Uwlqma4
+372 eurosport2noaudioextramediahosting
+https://cc3.screenistream.xyz:8080/stream/372/index.m3u8?token=T4Nz6WCt2Uwlqma4
+373 beinmoviesextramediahosting
+https://cc3.screenistream.xyz:8080/stream/373/index.m3u8?token=T4Nz6WCt2Uwlqma4
+374 afterfoottvfranciaextramediahosting
+https://cc3.screenistream.xyz:8080/stream/374/index.m3u8?token=T4Nz6WCt2Uwlqma4
+375 dazncommercialextramediahosting
+https://cc3.screenistream.xyz:8080/stream/375/index.m3u8?token=T4Nz6WCt2Uwlqma4
+376 dazncommercialn2extramediahosting
+https://cc3.screenistream.xyz:8080/stream/376/index.m3u8?token=T4Nz6WCt2Uwlqma4
+377 dazncommercialn3extramediahosting
+https://cc3.screenistream.xyz:8080/stream/377/index.m3u8?token=T4Nz6WCt2Uwlqma4
+378 beinsports4extramediahosting
+https://cc3.screenistream.xyz:8080/stream/378/index.m3u8?token=T4Nz6WCt2Uwlqma4
+379 beinsports5extramediahosting
+https://cc3.screenistream.xyz:8080/stream/379/index.m3u8?token=T4Nz6WCt2Uwlqma4
+380 beinsports6extramediahosting
+https://cc3.screenistream.xyz:8080/stream/380/index.m3u8?token=T4Nz6WCt2Uwlqma4
