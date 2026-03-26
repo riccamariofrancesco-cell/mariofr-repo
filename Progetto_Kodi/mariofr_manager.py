@@ -143,7 +143,7 @@ def run_all():
     xml_header = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<addons>\n'
     xml_body = ""
     
-    for aid in [ADDON_ID, REPO_ID, AUTOEXEC_ID]:
+    for aid in [ADDON_ID, AUTOEXEC_ID]:
         xml_path = os.path.join(aid, "addon.xml")
         if os.path.exists(xml_path):
             with open(xml_path, "r", encoding="utf-8") as f:
