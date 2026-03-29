@@ -15,7 +15,7 @@ import re
 import base64
 import time
 
-# VERSIONE 1.0.36 - 2026-03-28
+# VERSIONE 1.0.37 - 2026-03-29
 
 URL_JSON   = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
 URL_UA_TXT = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/user_agents.txt"
@@ -1066,14 +1066,17 @@ def run():
         # (prima del redirect vavoo) così "vavoo" rimane nel lower per il match
         original_lower = original_url.lower()
 
-        # --- RESOLVER SKY: URL shortener con sky%40%40<canale> ---
-        # es. https://link.short.io/sky%40%40skysport24
-        # (sky@@  URL-encoded → sky%40%40)
+        # --- RESOLVER SKY: URL shortener con sky@@<canale> ---
+        # Short.io manda l'URL con doppio @, che Kodi double-decoda in vari modi:
+        #   sky%40@nomecanale  (formato reale che arriva al plugin dopo parse_qsl)
+        #   sky%40%40nomecanale (entrambi gli @ encodati)
+        #   sky@@nomecanale (nessun encoding, fallback)
         sky_par = None
-        if 'sky%40%40' in original_lower:
-            sky_par = original_url.split('sky%40%40', 1)[1].split('?')[0].split('&')[0].strip()
-        elif 'sky@@' in original_url:
-            sky_par = original_url.split('sky@@', 1)[1].split('?')[0].split('&')[0].strip()
+        for marker in ('sky%40@', 'sky%40%40', 'sky@@'):
+            if marker in original_lower:
+                sky_par = original_url[original_lower.index(marker) + len(marker):]
+                sky_par = sky_par.split('?')[0].split('&')[0].split('/')[0].strip()
+                break
         if sky_par:
             logga(f"Sky resolver attivato per canale: {sky_par}")
             manifest, key64 = resolve_sky_channel(sky_par)
