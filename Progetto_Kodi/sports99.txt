@@ -1,0 +1,91 @@
+def sports99(parIn):
+    import json
+    mode=0
+    arrPar=parIn.split("__")
+    mode=arrPar[0]
+    logga("MODE ==> "+mode)
+    api = StreamSportsClient()
+    jsonText='{"SetViewMode":"50","items":['
+    if mode == "0":
+        channels=api.get_sports()
+        #ret=json.dumps(api.get_sports())
+        numIt=0
+        for c in channels:
+            tit=c["match_info"]
+            chan=c["channel_name"]
+            url=c["url"]
+            img=c["image"] 
+            time=c["start"] if c["start"] is not None else "noTime"
+            cat=c["sport_category"] if c["sport_category"] is not None else "NoCat"
+
+            titolo="[COLOR gold]"+time+"[/COLOR] [COLOR lime]"+cat+" "+tit+"[/COLOR] [COLOR blue]("+chan+")[/COLOR]"
+            if (numIt > 0):
+                jsonText = jsonText + ','    
+            jsonText = jsonText + '{"title":"'+titolo+'",'
+            jsonText = jsonText + '"myresolve":"sports99@@2__'+url+'",'
+            jsonText = jsonText + '"thumbnail":"'+img+'",'
+            jsonText = jsonText + '"fanart":"https://www.stadiotardini.it/wp-content/uploads/2016/12/mandrakata.jpg",'
+            jsonText = jsonText + '"info":"'+tit+'"}'
+            numIt=numIt+1  
+
+    if mode == "1":
+        channels=api.get_live_tv()
+        numIt=0
+        for c in channels:
+            tit=c["name"]
+            code=c["code"]
+            url=c["url"]
+            img=c["image"] if c["image"] is not None else "https://upload.wikimedia.org/wikipedia/commons/f/f1/Serie_televisive_1.png"
+            if c.get("status") == "offline":
+                continue
+            
+            titolo="[COLOR lime]"+tit+"[/COLOR] [COLOR blue]("+code+")[/COLOR]"
+            if (numIt > 0):
+                jsonText = jsonText + ','    
+            jsonText = jsonText + '{"title":"'+titolo+'",'
+            jsonText = jsonText + '"myresolve":"sports99@@2__'+url+'",'
+            jsonText = jsonText + '"thumbnail":"'+img+'",'
+            jsonText = jsonText + '"fanart":"https://www.stadiotardini.it/wp-content/uploads/2016/12/mandrakata.jpg",'
+            jsonText = jsonText + '"info":"'+tit+'"}'
+            numIt=numIt+1  
+
+    if mode == "2":
+        par=arrPar[1]
+        stream=api.get_stream_url(par)
+        url="no_url"
+        try:
+            url=stream["url"]
+        except Exception as e:
+            logga("ERRORE API. TRY FREE_PLAN")
+            return (sports99("3__"+par))
+        titolo="[COLOR gold]PLAY STREAM[/COLOR]"
+        jsonText = jsonText + '{"title":"'+titolo+'",'
+        jsonText = jsonText + '"link":"'+url+'|Referer=https://cdn-live.tv/&Origin=https://cdn-live.tv&User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)",'
+        jsonText = jsonText + '"thumbnail":"https://www.metatvapk.com/wp-content/uploads/2025/04/image-1.png",'
+        jsonText = jsonText + '"fanart":"https://www.stadiotardini.it/wp-content/uploads/2016/12/mandrakata.jpg",'
+        jsonText = jsonText + '"info":"PLAY"}'
+
+
+    if mode == "3":
+        par=arrPar[1]
+        api = StreamSportsClient("cdnlivetv", "free")
+        stream=api.get_stream_url(par)
+        url="ignore"
+        try:
+            url=stream["url"]
+        except Exception as e:
+            logga("ERRORE API")
+        titolo="[COLOR gold]PLAY STREAM[/COLOR]"
+        jsonText = jsonText + '{"title":"'+titolo+'",'
+        jsonText = jsonText + '"link":"'+url+'|Referer=https://cdn-live.tv/&Origin=https://cdn-live.tv",'
+        jsonText = jsonText + '"thumbnail":"https://www.metatvapk.com/wp-content/uploads/2025/04/image-1.png",'
+        jsonText = jsonText + '"fanart":"https://www.stadiotardini.it/wp-content/uploads/2016/12/mandrakata.jpg",'
+        jsonText = jsonText + '"info":"PLAY"}'
+
+
+    jsonText = jsonText + "]}"
+    
+    logga("JSON_99: "+jsonText)
+    video_urls= []
+    video_urls.append((jsonText, "PLAY VIDEO", "No info", "noThumb", "json"))
+    return video_urls
