@@ -15,7 +15,7 @@ import re
 import base64
 import time
 
-# VERSIONE 1.0.37 - 2026-03-29
+# VERSIONE 1.0.37 - 2026-03-29 - 1.2.222
 
 URL_JSON   = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
 URL_UA_TXT = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/user_agents.txt"
