@@ -15,14 +15,11 @@ import re
 import base64
 import time
 
-# VERSIONE 1.0.38 - 2026-04-02 - 1.2.223
+# VERSIONE 1.0.37 - 2026-03-29 - 1.2.222
 
 URL_JSON   = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/playlist.json"
 URL_UA_TXT = "https://raw.githubusercontent.com/riccamariofrancesco-cell/mariofr-repo/refs/heads/main/user_agents.txt"
-URL_MANDRA   = "https://test34344.herokuapp.com/filter.php"
-URL_EPG_LIST = "https://test34344.herokuapp.com/filter.php?numTest=A1A201A"
-URL_ZAPPR    = "https://channels.zappr.stream/it/dtt/national.json"
-FANART_DEFAULT = "https://www.stadiotardini.it/wp-content/uploads/2016/12/mandrakata.jpg"
+URL_MANDRA = "https://test34344.herokuapp.com/filter.php"
 
 UA_FALLBACK = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
 
@@ -866,258 +863,6 @@ def _make_options(url, ref, noref=False):
     ]
     return json.dumps({'SetViewMode': '50', 'items': items})
 
-# ===========================================================================
-# EPG  helpers
-# ===========================================================================
-
-def _norm_ch_name(name):
-    """Normalizza nome canale per confronto fuzzy."""
-    n = name.lower()
-    for drop in (' hd', ' fhd', ' 4k', ' full hd', '+', '.', '-'):
-        n = n.replace(drop, ' ')
-    # rimuovi accenti comuni
-    n = n.replace('à','a').replace('è','e').replace('é','e').replace('ì','i').replace('ò','o').replace('ù','u')
-    return ' '.join(n.split())
-
-def _ch_matches(epg_norm, ch_norm):
-    """True se i nomi normalizzati si sovrappongono."""
-    if epg_norm == ch_norm:
-        return True
-    if epg_norm in ch_norm or ch_norm in epg_norm:
-        return True
-    # confronto senza spazi: "la 7" == "la7", "sky tg 24" == "sky tg24"
-    e_ns = epg_norm.replace(' ', '')
-    c_ns = ch_norm.replace(' ', '')
-    if e_ns == c_ns or e_ns in c_ns or c_ns in e_ns:
-        return True
-    # gestisce varianti tipo "rai 1" vs "rai uno"
-    num_map = {'uno':'1','due':'2','tre':'3','quattro':'4','cinque':'5',
-               'sei':'6','sette':'7','otto':'8','nove':'9','zero':'0'}
-    e2 = epg_norm
-    c2 = ch_norm
-    for word, digit in num_map.items():
-        e2 = e2.replace(word, digit)
-        c2 = c2.replace(word, digit)
-    e2 = ' '.join(e2.split())
-    c2 = ' '.join(c2.split())
-    return e2 == c2 or e2 in c2 or c2 in e2
-
-def search_epg_matches(epg_title):
-    """
-    Cerca in playlist.json e zappr tutti i canali il cui nome
-    corrisponde (fuzzy) a epg_title.
-    Restituisce lista di dict:
-      {section, name, url, license, thumb, resolver_tipo, resolver_param}
-    """
-    epg_norm = _norm_ch_name(epg_title)
-    matches  = []
-
-    # --- Playlist.json ---
-    try:
-        req  = urllib.request.Request(URL_JSON, headers={'User-Agent': UA_FALLBACK})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            playlist = json.loads(r.read().decode())
-        for ch in playlist:
-            ch_norm = _norm_ch_name(ch.get('name', ''))
-            if _ch_matches(epg_norm, ch_norm):
-                matches.append({
-                    'section': ch.get('category', 'Playlist'),
-                    'name':    ch.get('name', ''),
-                    'url':     ch.get('url', ''),
-                    'license': ch.get('license', ''),
-                    'thumb':   ch.get('icon', 'DefaultVideo.png'),
-                    'tipo':    'playlist',
-                    'param':   '',
-                })
-    except Exception as e:
-        logga(f"EPG search playlist error: {e}")
-
-    # --- Zappr ---
-    try:
-        zappr_data = json.loads(http_get(URL_ZAPPR, headers={'User-Agent': 'Mozilla/5.0'}, timeout=15))
-        for item in zappr_data.get('channels', []):
-            ch_norm = _norm_ch_name(item.get('name', ''))
-            if not _ch_matches(epg_norm, ch_norm):
-                continue
-            lcn     = item.get('lcn', '')
-            tit     = item.get('name', '')
-            url_str = item.get('url', '')
-            tipo_ch = item.get('type', '')
-            logo    = item.get('logo', 'DefaultVideo.png') or 'DefaultVideo.png'
-            if tipo_ch not in ('hls', 'dash'):
-                continue
-            # Costruisce resolver tipo/param identici a zappr() di myResolver
-            if tipo_ch == 'hls':
-                if 'zappr://' in url_str:
-                    par_sky = url_str.split('/')[-1]
-                    r_tipo, r_param = 'skytv', par_sky
-                else:
-                    r_tipo, r_param = 'amstaff', url_str + '|0000'
-            else:  # dash
-                lic = item.get('license', '')
-                if lic == 'clearkey':
-                    url_str = url_str + '|' + item.get('licensedetails', '0000')
-                else:
-                    url_str = url_str + '|0000'
-                r_tipo, r_param = 'amstaff', url_str
-            matches.append({
-                'section': 'DVB-T2 (zappr)',
-                'name':    f"[{lcn}] {tit}",
-                'url':     '',
-                'license': '',
-                'thumb':   logo,
-                'tipo':    r_tipo,
-                'param':   r_param,
-            })
-    except Exception as e:
-        logga(f"EPG search zappr error: {e}")
-
-    return matches
-
-def fetch_epg_info(epg_id):
-    """
-    Recupera da guidatv.org il programma attualmente in onda.
-    Restituisce (orario, titolo, descrizione) o ('','','').
-    """
-    try:
-        from html.parser import HTMLParser as _HP
-
-        class _EpgParser(_HP):
-            def __init__(self):
-                super().__init__()
-                self.items  = []
-                self._cur   = {}
-                self._field = None
-                self._buf   = []
-
-            def handle_starttag(self, tag, attrs):
-                a = dict(attrs)
-                cls = a.get('class', '')
-                if 'schedule-item' in cls or 'program-item' in cls:
-                    self._cur   = {}
-                    self._field = None
-                if 'time' in cls or 'orario' in cls:
-                    self._field = 'time'
-                    self._buf   = []
-                elif 'title' in cls or 'titolo' in cls:
-                    self._field = 'title'
-                    self._buf   = []
-                elif 'desc' in cls or 'descrizione' in cls:
-                    self._field = 'desc'
-                    self._buf   = []
-
-            def handle_data(self, data):
-                if self._field:
-                    self._buf.append(data.strip())
-
-            def handle_endtag(self, tag):
-                if self._field and self._buf:
-                    self._cur[self._field] = ' '.join(self._buf).strip()
-                    self._buf   = []
-                    self._field = None
-                if tag in ('li', 'div') and self._cur.get('title'):
-                    self.items.append(dict(self._cur))
-                    self._cur = {}
-
-        page = http_get(f"https://guidatv.org/canali/{epg_id}",
-                        headers={'User-Agent': 'Kodi/EPG-Addon', 'Accept-Language': 'it-IT,it;q=0.9'},
-                        timeout=10)
-        if not page:
-            return ('', '', '')
-        # Cerca il programma corrente con regex semplice come fallback
-        # Pattern: orario + titolo nella guida
-        import time as _time
-        current_h = _time.localtime().tm_hour
-        current_m = _time.localtime().tm_min
-
-        # Cerca tutte le righe orario/titolo con regex
-        rows = re.findall(
-            r'(\d{1,2}:\d{2})[^<]*</[^>]+>[^<]*<[^>]+>[^<]*<[^>]+>([^<]{3,80})',
-            page)
-        if not rows:
-            rows = re.findall(r'(\d{1,2}:\d{2})\s*[-–]\s*([^\n<]{3,80})', page)
-
-        best_title = ''
-        best_time  = ''
-        for t_str, title in rows:
-            try:
-                h, m = int(t_str.split(':')[0]), int(t_str.split(':')[1])
-                t_min = h * 60 + m
-                now_min = current_h * 60 + current_m
-                if t_min <= now_min:
-                    best_time  = t_str
-                    best_title = title.strip()
-            except:
-                pass
-        return (best_time, best_title, '')
-    except Exception as e:
-        logga(f"fetch_epg_info error: {e}")
-        return ('', '', '')
-
-def resolve_zappr_to_items():
-    """
-    Fetcha channels.zappr.stream e restituisce lista di item-dict
-    pronti per _render_mandra_items.
-    """
-    items = []
-    try:
-        data = json.loads(http_get(URL_ZAPPR, headers={'User-Agent': 'Mozilla/5.0'}, timeout=15))
-        for item in data.get('channels', []):
-            lcn     = item.get('lcn', '')
-            tit     = item.get('name', '')
-            url_str = item.get('url', '')
-            tipo_ch = item.get('type', '')
-            logo    = item.get('logo', '') or 'DefaultVideo.png'
-            if tipo_ch not in ('hls', 'dash'):
-                continue
-            if tipo_ch == 'hls':
-                if 'zappr://' in url_str:
-                    par_sky = url_str.split('/')[-1]
-                    myres = f'skyTV@@{par_sky}'
-                else:
-                    myres = f'amstaff@@{url_str}|0000'
-            else:
-                lic = item.get('license', '')
-                if lic == 'clearkey':
-                    url_str = url_str + '|' + item.get('licensedetails', '0000')
-                else:
-                    url_str = url_str + '|0000'
-                myres = f'amstaff@@{url_str}'
-            items.append({
-                'title':     f'[COLOR gold][{lcn}] {tit}[/COLOR]',
-                'thumbnail': logo,
-                'fanart':    FANART_DEFAULT,
-                'myresolve': myres,
-                'info':      tipo_ch,
-            })
-            # canali extra hbbtv
-            for chExt in item.get('hbbtv', []):
-                sublcn  = chExt.get('sublcn', '')
-                tit_ext = chExt.get('name', '')
-                tipo_e  = chExt.get('type', '')
-                url_e   = chExt.get('url', '')
-                if tipo_e not in ('hls', 'dash'):
-                    continue
-                if tipo_e == 'hls':
-                    myres_e = f'amstaff@@{url_e}|0000'
-                else:
-                    lic_e = item.get('license', '')
-                    if lic_e == 'clearkey':
-                        url_e = url_e + '|' + item.get('licensedetails', '0000')
-                    else:
-                        url_e = url_e + '|0000'
-                    myres_e = f'amstaff@@{url_e}'
-                items.append({
-                    'title':     f'[COLOR cyan][{lcn}-{sublcn}] {tit_ext}[/COLOR]',
-                    'thumbnail': logo,
-                    'fanart':    FANART_DEFAULT,
-                    'myresolve': myres_e,
-                    'info':      tipo_e,
-                })
-    except Exception as e:
-        logga(f"resolve_zappr_to_items error: {e}")
-    return items
-
 def dispatch_resolver(tipo, param):
     tipo = tipo.lower()
 
@@ -1503,146 +1248,6 @@ def run():
         return
 
     # -----------------------------------------------------------------------
-    # AZIONE: EPG_LIST  — mostra lista canali EPG
-    # -----------------------------------------------------------------------
-    if params.get('action') == 'epg_list':
-        logga("EPG list")
-        try:
-            raw   = makeJob(URL_EPG_LIST)
-            items = json.loads(raw).get('items', [])
-        except Exception as e:
-            logga(f"EPG list error: {e}")
-            items = []
-        for item in items:
-            raw_title  = item.get('title', '')
-            epg_id     = ''
-            myres      = item.get('myresolve', '')
-            if myres.startswith('epg@@'):
-                epg_id = myres.split('@@', 1)[1]
-            clean_title = strip_kodi_tags(raw_title)
-            thumb  = item.get('thumbnail', 'DefaultVideo.png')
-            fanart = item.get('fanart', FANART_DEFAULT)
-            info   = item.get('info', '')
-            li = xbmcgui.ListItem(label=f"{info}  {clean_title}" if info else clean_title)
-            li.setArt({'thumb': thumb, 'fanart': fanart})
-            li.setInfo('video', {'title': clean_title, 'plot': info})
-            query      = {'action': 'epg_search', 'epg_title': clean_title,
-                          'epg_id': epg_id, 'epg_thumb': thumb}
-            plugin_url = f"{sys.argv[0]}?{urllib.parse.urlencode(query)}"
-            xbmcplugin.addDirectoryItem(handle, plugin_url, li, isFolder=True)
-        xbmcplugin.endOfDirectory(handle)
-        return
-
-    # -----------------------------------------------------------------------
-    # AZIONE: EPG_SEARCH  — cerca canale nelle sorgenti, mostra dialog, play
-    # -----------------------------------------------------------------------
-    if params.get('action') == 'epg_search':
-        epg_title = params.get('epg_title', '')
-        epg_id    = params.get('epg_id', '')
-        epg_thumb = params.get('epg_thumb', 'DefaultVideo.png')
-        logga(f"EPG search: {epg_title} (id={epg_id})")
-
-        dialog = xbmcgui.Dialog()
-        dialog.notification("EPG", f"Ricerca: {epg_title}...",
-                            xbmcgui.NOTIFICATION_INFO, 2000)
-
-        matches = search_epg_matches(epg_title)
-
-        if not matches:
-            dialog.notification("EPG", "Nessun canale trovato",
-                                xbmcgui.NOTIFICATION_WARNING, 3000)
-            xbmcplugin.endOfDirectory(handle, succeeded=False)
-            return
-
-        labels = [f"{m['section']} > {m['name']}" for m in matches]
-        scelta = dialog.select(f"EPG - {epg_title}", labels)
-
-        if scelta == -1:
-            xbmcplugin.endOfDirectory(handle, succeeded=False)
-            return
-
-        chosen = matches[scelta]
-
-        epg_time, epg_prog, epg_desc = ('', '', '')
-        if epg_id:
-            epg_time, epg_prog, epg_desc = fetch_epg_info(epg_id)
-        epg_plot = f"[{epg_time}] {epg_prog}" if epg_prog else epg_title
-
-        if chosen['tipo'] == 'playlist':
-            url       = chosen['url']
-            lic       = chosen['license']
-            url_lower = url.lower()
-            li = xbmcgui.ListItem(label=chosen['name'], path=url)
-            li.setInfo('video', {'title': chosen['name'], 'plot': epg_plot})
-            li.setArt({'thumb': epg_thumb})
-            if '.m3u8' in url_lower and not lic:
-                li.setProperty('inputstream', 'inputstream.ffmpegdirect')
-                li.setMimeType('application/x-mpegURL')
-                li.setProperty('inputstream.ffmpegdirect.manifest_type',      'hls')
-                li.setProperty('inputstream.ffmpegdirect.is_realtime_stream', 'true')
-            else:
-                headers_str = _auto_headers_for_url(url_lower) or f'User-Agent={UA_FALLBACK}'
-                li.setProperty('inputstream', 'inputstream.adaptive')
-                li.setProperty('inputstream.adaptive.stream_headers',   headers_str)
-                li.setProperty('inputstream.adaptive.manifest_headers', headers_str)
-                if lic:
-                    li.setProperty('inputstream.adaptive.drm_legacy', f'org.w3.clearkey|{lic}')
-                if '.mpd' in url_lower:
-                    li.setMimeType('application/dash+xml')
-                elif '.m3u8' in url_lower:
-                    li.setMimeType('application/vnd.apple.mpegurl')
-        else:
-            result_type, result_data, extra = dispatch_resolver(chosen['tipo'], chosen['param'])
-            if result_type == 'url':
-                url = result_data
-                if extra:
-                    li = _build_listitem_ffmpeg(url)
-                else:
-                    hs = _auto_headers_for_url(url.lower()) or AMSTAFF_HEADERS
-                    li = _build_listitem_adaptive(url, hs, '')
-                li.setInfo('video', {'title': chosen['name'], 'plot': epg_plot})
-                li.setArt({'thumb': epg_thumb})
-            elif result_type == 'json':
-                try:
-                    sub_items = json.loads(result_data).get('items', [])
-                    direct = next((i for i in sub_items if i.get('link')
-                                   and i['link'] != 'ignore'), None)
-                    if direct:
-                        url = direct['link'].split('|')[0]
-                        hs  = _auto_headers_for_url(url.lower()) or AMSTAFF_HEADERS
-                        li  = _build_listitem_adaptive(url, hs, '')
-                        li.setInfo('video', {'title': chosen['name'], 'plot': epg_plot})
-                        li.setArt({'thumb': epg_thumb})
-                    else:
-                        dialog.notification("EPG", "Stream non risolvibile",
-                                            xbmcgui.NOTIFICATION_ERROR, 3000)
-                        xbmcplugin.endOfDirectory(handle, succeeded=False)
-                        return
-                except Exception as e:
-                    logga(f"EPG json resolver error: {e}")
-                    xbmcplugin.endOfDirectory(handle, succeeded=False)
-                    return
-            else:
-                dialog.notification("EPG", f"Errore: {result_data}",
-                                    xbmcgui.NOTIFICATION_ERROR, 3000)
-                xbmcplugin.endOfDirectory(handle, succeeded=False)
-                return
-
-        xbmc.Player().play(item=li)
-        xbmcplugin.endOfDirectory(handle, succeeded=False)
-        return
-
-    # -----------------------------------------------------------------------
-    # AZIONE: ZAPPR_MENU  — canali DVB-T2 da zappr.stream
-    # -----------------------------------------------------------------------
-    if params.get('action') == 'zappr_menu':
-        logga("Zappr menu")
-        items = resolve_zappr_to_items()
-        _render_mandra_items(handle, items)
-        xbmcplugin.endOfDirectory(handle)
-        return
-
-    # -----------------------------------------------------------------------
     # NAVIGAZIONE PLAYLIST NORMALE  (identica all'originale)
     # -----------------------------------------------------------------------
     action = params.get('action')
@@ -1655,30 +1260,13 @@ def run():
         data = []
 
     if not action:
-        # MENU PRINCIPALE: EPG -> DVB-T2 -> categorie playlist -> MandraKodi
-
-        # 1. EPG
-        li_epg = xbmcgui.ListItem(label="\U0001f4cb EPG")
-        li_epg.setArt({'icon': 'DefaultFolder.png'})
-        xbmcplugin.addDirectoryItem(
-            handle,
-            f"{sys.argv[0]}?{urllib.parse.urlencode({'action': 'epg_list'})}",
-            li_epg, isFolder=True)
-
-        # 2. DVB-T2 (zappr)
-        li_z = xbmcgui.ListItem(label="\U0001f4e1 DVB-T2 (zappr)")
-        li_z.setArt({'icon': 'DefaultFolder.png'})
-        xbmcplugin.addDirectoryItem(
-            handle,
-            f"{sys.argv[0]}?{urllib.parse.urlencode({'action': 'zappr_menu'})}",
-            li_z, isFolder=True)
-
-        # 3. Categorie playlist
+        # MENU PRINCIPALE: categorie playlist + voce MandraKodi
         categories = []
         for ch in data:
             cat = ch.get('category', 'Altro')
             if cat not in categories:
                 categories.append(cat)
+
         for cat in categories:
             li = xbmcgui.ListItem(label=cat)
             li.setArt({'icon': 'DefaultFolder.png'})
@@ -1686,8 +1274,8 @@ def run():
             plugin_url = f"{sys.argv[0]}?{urllib.parse.urlencode(query)}"
             xbmcplugin.addDirectoryItem(handle, plugin_url, li, isFolder=True)
 
-        # 4. MandraKodi
-        li_m = xbmcgui.ListItem(label="\U0001f4fa MandraKodi")
+        # Voce MandraKodi: apre direttamente plugin.video.mandrakodi
+        li_m = xbmcgui.ListItem(label="📺 MandraKodi")
         li_m.setArt({'icon': 'DefaultFolder.png'})
         xbmcplugin.addDirectoryItem(handle, "plugin://plugin.video.mandrakodi/", li_m, isFolder=True)
 
@@ -1706,7 +1294,6 @@ def run():
                 xbmcplugin.addDirectoryItem(handle, plugin_url, li, isFolder=False)
 
     xbmcplugin.endOfDirectory(handle)
-
 
 
 # ===========================================================================
