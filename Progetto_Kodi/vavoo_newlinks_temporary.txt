@@ -1,0 +1,51 @@
+[1] Rai 1 - vavoo6 https://vavoo.to/play/875922788/index.m3u8 - vavoo7 https://vavoo.to/play/1225653759/index.m3u8
+[2] Rai 2 - vavoo6 https://vavoo.to/play/1939210164/index.m3u8 - vavoo7 https://vavoo.to/play/246253359/index.m3u8
+[3] Rai 3 - vavoo6 https://vavoo.to/play/1324733956/index.m3u8 - vavoo7 https://vavoo.to/play/869117599/index.m3u8
+[4] Rete 4 - vavoo6 https://vavoo.to/play/4198218214/index.m3u8 - vavoo7 https://vavoo.to/play/2235732004/index.m3u8
+[5] Canale 5 - vavoo6 https://vavoo.to/play/1534161807/index.m3u8 - vavoo7 https://vavoo.to/play/1101559666/index.m3u8
+[6] Italia 1 - vavoo6 https://vavoo.to/play/663536394/index.m3u8
+[7] LA7 - vavoo6 https://vavoo.to/play/2143522071/index.m3u8 - vavoo7 https://vavoo.to/play/775530063/index.m3u8
+[8] TV8 - vavoo6 https://vavoo.to/play/4038365720/index.m3u8 - vavoo7 https://vavoo.to/play/2706291008/index.m3u8
+[9] Nove - vavoo6 https://vavoo.to/play/867216452/index.m3u8 - vavoo7 https://vavoo.to/play/1574591400/index.m3u8
+[20] 20 Mediaset - vavoo6 https://vavoo.to/play/1230338185/index.m3u8 - vavoo7 https://vavoo.to/play/3134481201/index.m3u8
+[21] Rai 4 - vavoo6 https://vavoo.to/play/4241820180/index.m3u8 - vavoo7 https://vavoo.to/play/2179822223/index.m3u8
+[22] Iris - vavoo6 https://vavoo.to/play/576490047/index.m3u8 - vavoo7 https://vavoo.to/play/23919988/index.m3u8
+[23] Rai 5 - vavoo6 https://vavoo.to/play/3249873828/index.m3u8 - vavoo7 https://vavoo.to/play/3163380543/index.m3u8
+[24] Rai Movie - vavoo6 https://vavoo.to/play/2835672487/index.m3u8 - vavoo7 https://vavoo.to/play/1925964148/index.m3u8
+[25] Rai Premium - vavoo6 https://vavoo.to/play/2861734300/index.m3u8 - vavoo7 https://vavoo.to/play/2828455552/index.m3u8
+[26] Cielo - vavoo6 https://vavoo.to/play/2719953688/index.m3u8 - vavoo7 https://vavoo.to/play/3743894403/index.m3u8
+[27] 27Twentyseven - vavoo6 https://vavoo.to/play/80896559/index.m3u8 - vavoo7 https://vavoo.to/play/608774683/index.m3u8
+[28] TV2000 - vavoo6 https://vavoo.to/play/1949044924/index.m3u8 - vavoo7 https://vavoo.to/play/1133734972/index.m3u8
+[29] LA7d - vavoo6 https://vavoo.to/play/881846038/index.m3u8
+[30] La5 - vavoo6 https://vavoo.to/play/84139639/index.m3u8 - vavoo7 https://vavoo.to/play/1425667375/index.m3u8
+[31] Real Time - vavoo6 https://vavoo.to/play/1574975196/index.m3u8 - vavoo7 https://vavoo.to/play/2251241999/index.m3u8
+[32] QVC - vavoo6 https://vavoo.to/play/1232565681/index.m3u8 - vavoo7 https://vavoo.to/play/2952884641/index.m3u8
+[33] Food Network - vavoo6 https://vavoo.to/play/2820683351/index.m3u8 - vavoo7 https://vavoo.to/play/2767861049/index.m3u8
+[34] Cine34 - vavoo6 https://vavoo.to/play/62558606/index.m3u8 - vavoo7 https://vavoo.to/play/1768670187/index.m3u8
+[35] Focus - vavoo6 https://vavoo.to/play/3439223610/index.m3u8 - vavoo7 https://vavoo.to/play/2982550433/index.m3u8 - vavoo7backup https://vavoo.to/play/2113273064/index.m3u8
+[36] RTL 102.5 - vavoo6 https://vavoo.to/play/3168132911/index.m3u8 - vavoo7 https://vavoo.to/play/1729811452/index.m3u8
+[37] Warner TV OFFLINE
+[38] GIALLO - vavoo6 https://vavoo.to/play/2373936189/index.m3u8 - vavoo7 https://vavoo.to/play/4060499455/index.m3u8
+[39] TOPCrime - vavoo6 https://vavoo.to/play/269503091/index.m3u8 - vavoo7 https://vavoo.to/play/3420407456/index.m3u8
+[40] Boing - vavoo6 https://vavoo.to/play/3373510242/index.m3u8 - vavoo7 https://vavoo.to/play/3022771961/index.m3u8
+[41] K2 - vavoo6 https://vavoo.to/play/2255724318/index.m3u8 - vavoo7 https://vavoo.to/play/11090349/index.m3u8
+[42] Rai Gulp - vavoo6 https://vavoo.to/play/1901652742/index.m3u8 - vavoo7 https://vavoo.to/play/1803677691/index.m3u8
+[43] Rai YoYo - vavoo6 https://vavoo.to/play/1785501924/index.m3u8 - vavoo7 https://vavoo.to/play/1890950169/index.m3u8
+[44] frisbee - vavoo6 https://vavoo.to/play/1595860185/index.m3u8
+[45] Boing Plus OFFLINE
+[46] Cartoonito - vavoo6 https://vavoo.to/play/1987220436/index.m3u8 - vavoo7 https://vavoo.to/play/1907000512/index.m3u8
+[47] Super! - vavoo6 https://vavoo.to/play/3550030443/index.m3u8 - vavoo7 https://vavoo.to/play/2900362153/index.m3u8
+[48] Rai News 24 - vavoo6 https://vavoo.to/play/2272923972/index.m3u8 - vavoo7 https://vavoo.to/play/2239645272/index.m3u8
+[49] Mediaset Italia 2 - vavoo7 https://vavoo.to/play/3538009430/index.m3u8
+[50] Sky TG24 su SKY (intrattenimento)
+[51] TGCOM 24 - vavoo6 https://vavoo.to/play/2418148449/index.m3u8 - vavoo7 https://vavoo.to/play/1785098768/index.m3u8
+[52] DMAX - vavoo6 https://vavoo.to/play/3008151733/index.m3u8 - vavoo7 https://vavoo.to/play/3803638765/index.m3u8
+[53] Italia53 OFFLINE
+[54] Rai Storia - vavoo6 https://vavoo.to/play/78838793/index.m3u8 - vavoo7 https://vavoo.to/play/57338653/index.m3u8
+[55] Mediaset Extra - vavoo6 https://vavoo.to/play/477466531/index.m3u8
+[56] HGTV - vavoo6 https://vavoo.to/play/2897782781/index.m3u8 - vavoo7 https://vavoo.to/play/4248997029/index.m3u8
+[57] Rai Scuola - vavoo6 https://vavoo.to/play/2007798511/index.m3u8 - vavoo7 https://vavoo.to/play/1886684667/index.m3u8
+[58] Rai Sport - vavoo6 https://vavoo.to/play/2924135092/index.m3u8 - vavoo7 https://vavoo.to/play/843891896/index.m3u8
+[59] Motor Trend - vavoo6 https://vavoo.to/play/3758728323/index.m3u8
+[60] SPORT ITALIA - vavoo7 https://vavoo.to/play/2881739927/index.m3u8
+[64] SUPERTENNIS - vavoo6 https://vavoo.to/play/3213195143/index.m3u8 - vavoo7 https://vavoo.to/play/3009377513/index.m3u8
