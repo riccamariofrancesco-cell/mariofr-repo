@@ -630,24 +630,24 @@
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "[47] SUPER!TENNIS EXTRA EUROTV 6",
+        "name": "[64] SUPERTENNIS EXTRA EUROTV 6",
         "url": "https://vavoo.to/play/3213195143/index.m3u8",
         "license": "",
         "manifest_type": "hls",
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "[47] SUPER!TENNIS EXTRA EUROTV 7",
+        "name": "[64] SUPERTENNIS EXTRA EUROTV 7",
         "url": "https://vavoo.to/play/3009377513/index.m3u8",
         "license": "",
         "manifest_type": "hls",
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "DAZN 1 OFFLINE",
-        "url": "https://mariofr.com/",
-        "license": "",
-        "manifest_type": "",
+        "name": "DAZN 1",
+        "url": "https://dct-fs-live-dazn-cdn.dazn.com/dash/dazn-linear-206/stream.mpd?p=web",    
+        "license": "6164a0abaa7c53c6875fa1e7fe0bb463:271510d3e1259571dcc568a232e397eb",
+        "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
     {
