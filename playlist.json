@@ -245,7 +245,7 @@
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "[7] LA7D EXTRA EUROTV 6CEE",
+        "name": "[29] LA7D EXTRA EUROTV 6CEE",
         "url": "https://vavoo.to/play/881846038/index.m3u8",
         "license": "",
         "manifest_type": "hls",
@@ -392,14 +392,14 @@
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "BOING EXTRA EUROTV 6CEE",
+        "name": "[40] BOING EXTRA EUROTV 6CEE",
         "url": "https://vavoo.to/play/3373510242/index.m3u8",
         "license": "",
         "manifest_type": "hls",
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "BOING EXTRA EUROTV 7SHH",
+        "name": "[40] BOING EXTRA EUROTV 7SHH",
         "url": "https://vavoo.to/play/3022771961/index.m3u8",
         "license": "",
         "manifest_type": "hls",
@@ -476,14 +476,14 @@
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "SUPER EXTRA EUROTV 6CEE",
+        "name": "[47] SUPER EXTRA EUROTV 6CEE",
         "url": "https://vavoo.to/play/3550030443/index.m3u8",
         "license": "",
         "manifest_type": "hls",
         "category": "\ud83d\udcfa DVB-T2 (playlist)"
     },
     {
-        "name": "SUPER EXTRA EUROTV 7SHH",
+        "name": "[47] SUPER EXTRA EUROTV 7SHH",
         "url": "https://vavoo.to/play/2900362153/index.m3u8",
         "license": "",
         "manifest_type": "hls",
