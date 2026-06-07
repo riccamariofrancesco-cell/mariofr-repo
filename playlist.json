@@ -674,7 +674,7 @@
     {
         "name": "EUROSPORT 1",
         "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport1)/manifest.mpd",
-        "license": "46e559c2f9f645ce8d80c7fa20446bdb:597d214d66342ee042bccffeb165e750",
+        "license": "610bcda111c74c97b0792b059630a10b:b9817853538459b371f3fb56a267d55c",
         "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
@@ -695,7 +695,7 @@
     {
         "name": "EUROSPORT 2",
         "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport2)/manifest.mpd",
-        "license": "e8372283a523444c84646c4172b1bc0f:969a90e1a1a6424a68fe4b5d776368ec",
+        "license": "700b3619ccfb4c0cbd2bb26832e643cf:b2c7c4b6f3375b8e07c42f95668dadeb",
         "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
@@ -723,14 +723,14 @@
     {
         "name": "EUROSPORT 3",
         "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport3)/manifest.mpd",
-        "license": "1e2398b0eeb04829b4711e14b4a91244:11e26659ebfecf6a22ed56da340448cd",
+        "license": "5fd7709359db4103ae799d5f8d79ae0b:6d39ec4186bed97705274a6c78c69d94",
         "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
     {
         "name": "EUROSPORT 4",
         "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport4)/manifest.mpd",
-        "license": "9dd7be79e44f4d08a91ec5d1553f17b8:8a62369f81a4b6e5f2d4846f7bd5e7d1",
+        "license": "026e140de784409b9c437fcc0212977c:6f5ad01fa42deede99ae7c6ccf5215d7",
         "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
@@ -744,7 +744,7 @@
     {
         "name": "EUROSPORT 5",
         "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport5)/manifest.mpd",
-        "license": "b48e7e6d96da479da65e435ce65faeb1:48c703879ce4deedb5a2124a30a13bc4",
+        "license": "6844bc96d46e4677a322cd4838705489:6b483aa12ba85bad2e84efb4bc6a9893",
         "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
@@ -758,7 +758,7 @@
     {
         "name": "EUROSPORT 6",
         "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport6)/manifest.mpd",
-        "license": "ead1c567a3df48619799b2e78b18fdfa:1de9d9af5651296aa67913979ad8c694",
+        "license": "69982165690d4fef90d3f4d4e245fc27:49711e568736d9ae3ea7993571c9bcce",
         "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
@@ -772,7 +772,7 @@
 			{
         "name": "EUROSPORT 4K",
         "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport4k)/manifest.mpd",
-        "license": "",
+        "license": "9ceae06c6ad34aada83ba86c0b511452:406862beb4af1ef8fe04ba15d9936360,fcd924bd2e45470fa2ae50ef05e357c0:266db84d3572bc889185274a90ff31df,dea135e33341468f8a4e8da806d8a6e6:fb7423db39e6fab75056f8c83f415847,31911db90ee3410f8b38e45659d01fb1:ac316ab7dfd2b50faf6d44633e4fedd5,a16f2a39adbb4974b8910cec8a651a09:c2d55e0111af955f47214af209a2c468",
         "manifest_type": "mpd",
         "category": "DAZN (canali live)"
     },
