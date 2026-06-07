@@ -769,6 +769,13 @@
         "manifest_type": "hls",
         "category": "DAZN (canali live)"
     },
+			{
+        "name": "EUROSPORT 4K",
+        "url": "https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(eurosport4k)/manifest.mpd",
+        "license": "",
+        "manifest_type": "mpd",
+        "category": "DAZN (canali live)"
+    },
     {
         "name": "INTER TV",
         "url": "https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/ekeomalvg7/out/v1/f63288f993e6470580623d7b9b45efb0/cenc.mpd",
