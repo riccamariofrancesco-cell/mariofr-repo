@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pane Artesano - Pane Fresco Ogni Giorno</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --background: #FFF8F0;
+            --primary: #FF9800;
+            --primary-dark: #F57C00;
+            --secondary: #212121;
+            --accent: #8D6E63;
+            --light-text: #424242;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--secondary);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-xl font-bold text-amber-600">Pane Artesano</h1>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#menu" class="text-gray-500 hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium">Menu</a>
+                            <a href="#about" class="text-gray-500 hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium">Chi Siamo</a>
+                            <a href="#contact" class="text-gray-500 hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium">Contatti</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <!-- Mobile menu button -->
+                    <button @click.open="open = true" @click.away="open = false" class="md:hidden flex items-center p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                        <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div x-show="open" x-cloak class="md:hidden">
+                <div class="pt-2 pb-3 space-y-1 sm:px-6">
+                    <a href="#menu" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Menu</a>
+                    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Chi Siamo</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Contatti</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-[url('https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-center bg-cover min-h-[600px] flex items-center">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent"></div>
+        <div class="relative z-10 flex-1 px-4 lg:px-8">
+            <div class="max-w-2xl text-center">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+                    Pane Fresco Ogni Giorno
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-xl mx-auto">
+                    Pane artigianale fatto con lievito madre, farine selezionate e tanta passione. Scopri il gusto della tradizione.
+                </p>
+                <a href="#menu" class="btn-primary inline-block">Scopri il Nostro Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Il Nostro Pane</h2>
+
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Bread Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pane rustico" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Pane Rustico</h3>
+                        <p class="text-gray-600 mb-4">Pane tradizionale con crosta croccante e mollica alveolata, perfetto per bruschette e accompagnamenti.</p>
+                        <p class="font-bold text-amber-600">€4,50 al kg</p>
+                    </div>
+                </div>
+
+                <!-- Bread Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088773ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pane integrale" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Pane Integrale</h3>
+                        <p class="text-gray-600 mb-4">Ricco di fibre e sapore, preparato con farina integrale biologica e semi di lino.</p>
+                        <p class="font-bold text-amber-600">€5,00 al kg</p>
+                    </div>
+                </div>
+
+                <!-- Bread Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Focaccia" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Focaccia Al Rosmarino</h3>
+                        <p class="text-gray-600 mb-4">Soffice e fragrante, imprezzionata con rosmarino fresco e olio extravergine d'oliva.</p>
+                        <p class="font-bold text-amber-600">€6,00 al kg</p>
+                    </div>
+                </div>
+
+                <!-- Bread Item 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1601087230087-3b62ee1826e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pane ai cereali" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Pane ai Cereali</h3>
+                        <p class="text-gray-600 mb-4">Una miscela di cereali tostiati che dona un sapore ricco e una texture piacevolmente croccante.</p>
+                        <p class="font-bold text-amber-600">€5,50 al kg</p>
+                    </div>
+                </div>
+
+                <!-- Bread Item 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1589501224112-9104fdbf5637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Panini al="w-full h-48 object- Baguette" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Baguette Traditionnelle</h3>
+                        <p class="text-gray-600 mb-4">La classica baguette francese, con crosta dorata e mollica alveolata perfetta per i panini.</p>
+                        <p class="font-bold text-amber-600">€3,80 cadauna</p>
+                    </div>
+                </div>
+
+                <!-- Bread Item 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1555507036-5f4ba8920a3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pane alle olive" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Pane alle Olive</h3>
+                        <p class="text-gray-600 mb-4">Impasto arricchito con olive nere denocciolate, per un sapore mediterraneo intenso.</p>
+                        <p class="font-bold text-amber-600">€5,80 al kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-12 lg:grid-cols-2">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">La Nostra Storia</h2>
+                    <p class="text-gray-700 mb-6">
+                        Pane Artesano nasce dalla passione di una famiglia di fornai che da tre generazioni porta avanti l'arte della panificazione tradizionale. Il nostro segreto? Lievito madre vivo, farine selezionate e tempi di lievitazione rispettati, per ottenere un pane digeribile, saporito e ricco di aroma.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Ogni giorno alle 3 del mattino accendiamo i nostri forni a legna e iniziamo l'impasto, seguendo ritmi lenti che rispettano la natura degli ingredienti. Nessun additivo, nessun miglioratore, solo farina, acqua, sale e lievito madre.
+                    </p>
+                    <a href="#" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded transition-colors">
+                        Scopri di più
+                    </a>
+                </div>
+                <div class="hidden lg:block">
+                    <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Fornaio al lavoro" class="rounded-lg shadow-xl h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Contattaci</h2>
+
+            <div class="grid gap-8 lg:grid-cols-2">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-amber-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416c2 0 3.6-1.543 3.894-3.678l.05-.025a2 2 0 001.106-1.79V10.333A2.167 2.167 0 0013 8h-6a2.167 2.167 0 00-.999 2.333z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">Indirizzo</h3>
+                            <p class="text-gray-600">Via Roma 123, 00100 Roma RM</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-amber-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 9h-3a2 2 0 00-2 2v3H7v-3a2 2 0 00-2-2H2a2 2 0 00-2 2v3a2 2 0 002 2h3.586a.75.75 0 00.53-.22l4-4a.75.75 0 00-.18-1.06l-2.25-2.25a.75.75 0 00-1.06-.18L4.47 9H18a2 2 0 002-2v-1a2 2 0 00-2-2z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">Telefono</h3>
+                            <p class="text-gray-600">+39 06 1234 5678</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-amber-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M3 8a1 1 0 000 2h3a1 1 0 000-2H3zm10 0a1 1 0 000 2h3a1 1 0 000-2h-3zm-3 4a1 1 0 000 2h3a1 1 0 000-2H7zm0 4a1 1 0 000 2h3a1 1 0 000-2H7zm6-8a1 1 0 000 2h3a1 1 0 000-2h-3z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">Orari</h3>
+                            <p class="text-gray-600">Lunedì - Domenica: 6:00 - 20:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Messaggio</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded transition-colors">
+                                Invia Messaggio
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Pane Artesano</h3>
+                    <p class="text-gray-400">Pane artigianale fatto con passione dal 1985</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3 text-white">Links Rapidi</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#menu" class="hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">Chi Siamo</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contatti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3 text-white">Seguici</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-white transition-colors">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.675 0h-20.35c-1.49 0-2.698 1.21-2.943 2.65l-.293 3.25h-.02c-.028.226-.03.456-.016.684l.202 3.62h-.01c-.014.19-.015.368-.006.538l.053 1.02h.01c.026.355.114.63.305.8.191.17.43.257.685.257h1.39v5.04h-1.69v3.46h1.69v5.04h1.88c1.49 0 2.702-1.21 2.952-2.65l.293-3.25h.02c.028-.226.03-.456.016-.684l-.202-3.62h.01c.014-.19.015-.368.006-.538l-.053-1.02h-.01c-.026-.355-.114-.63-.305-.8-.191-.17-.43-.257-.685-.257h-1.39V8.55h1.69V5.08h-1.69V2.65c0-1.44 1.21-2.65 2.692-2.65h1.88z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-white transition-colors">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.607 1.789-1.464 2.179-2.493C21.96 3.35 20.85 3 19.569 3c-2.68 0-4.85 2.164-4.85 4.83 0 .38.034.754.1 1.114C12.7 7.69 10.65 6.2 8.82 4.11c-.77-.41-1.438-.792-1.99-1.11-.24.06-.48.194-.623.32-.21-.71-.33-1.508-.13-2.14-.03.24-.06.487-.08.728 0 1.51.77 2.84 2.01 3.22-.79-.03-1.53-.23-2.166-.487v.05c0 2.34 1.66 4.29 3.86 4.73-.41.11-.85.17-1.29.17-.315 0-.62-.03-.91-.08.63 1.95 2.46 3.37 4.6 3.41-.41.09-.84.14-1.28.14-.31 0-.61-.03-.91-.08 1.66 1.05 3.64 1.66 5.79 1.66 6.95 0 10.75-5.76 10.75-10.75 0-.17-.004-.34-.012-.51A11.52 11.52 0 0024 6.75a1.53 1.53 0 00-.046-.181z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
+                © 2026 Pane Artesano. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('modal', {
+                open: false,
+                toggle() {
+                    this.open = !this.open
+                }
+            })
+        })
+    </script>
+</body>
+</html>
