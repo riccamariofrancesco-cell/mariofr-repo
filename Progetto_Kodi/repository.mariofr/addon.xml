@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.mariofr" name="MarioFR Repo" version="1.1.0" provider-name="MarioFR">
+    <extension point="xbmc.addon.repository" name="MarioFR Repo">
+        <dir>
+            <info compressed="false">http://oracle8ubuntu:8080/mariofr-repo/addons.xml</info>
+            <checksum>http://oracle8ubuntu:8080/mariofr-repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://oracle8ubuntu:8080/mariofr-repo/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Installa gli addon di MarioFR</summary>
+        <platform>all</platform>
+    </extension>
+</addon>

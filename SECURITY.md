@@ -1,0 +1,9 @@
+# Security Policy
+
+## Supported Versions
+
+I am only suppoting my last version right now. Please update the add-on and the repository to see my last changes.
+
+## Reporting a Vulnerability
+
+To report a vulnerablility, please write an email to thorough.sloth.fyzk+adguard@mask.me and include the Kodi LOG. Thank you all for supporting this project!
