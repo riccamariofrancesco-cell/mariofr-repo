@@ -6,7 +6,6 @@
 ![Version](https://img.shields.io/badge/version-1.0.42--stable-brightgreen?style=for-the-badge)
 ![Kodi](https://img.shields.io/badge/Kodi-19%2B-1f90d1?style=for-the-badge&logo=kodi&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.x-3776ab?style=for-the-badge&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/license-Personal%20Use-green?style=for-the-badge)
 
 [📥 Download](#-installazione) · [🌐 Sito Web](https://mariofr.com/kodi) · [📋 Changelog](#-changelog)
 
