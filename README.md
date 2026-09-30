@@ -21,7 +21,7 @@
 | 📡 **DVB-T2 (zappr)** | Canali del digitale terrestre italiano via zappr.stream |
 | 🌐 **Playlist** | Canali organizzati per categoria: Sport, Cinema, News, Intrattenimento e altro |
 | 🔵 **Sky Italia** | Resolver integrato con decrittazione XOR e controllo scadenza link automatico |
-| 🟣 **EUROTV** | Supporto completo per il gruppo vavoo.to / kool.to / oha.to / huhu.to con selezione del provider al volo |
+| 🟣 **EUROTV** | Supporto completo per il gruppo vavoo.to / kool.to / oha.to / huhu.to con selezione del provider al volo (al momento non funzionante) |
 | 📺 **MandraKodi** | Collegamento diretto all'addon MandraKodi ufficiale |
 
 ---
