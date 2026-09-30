@@ -96,10 +96,11 @@ Per i canali **EUROTV** (vavoo e affini) puoi scegliere il provider:
 ## 📋 Changelog
 
 ### v1.0.42-stable *(2026-09-24)*
--  Alcune dipendenze esterne sono state/verranno rimosse definitivamente e sostituite con un'alternativa che prevede l'uso di un server interno alla rete in locale (non accessibile online, di conseguenza neanche nella repository/su Kodi)
+-  Alcune dipendenze esterne sono state/verranno rimosse **definitivamente** e sostituite con un'alternativa che prevede l'uso di un server interno alla rete in locale (non accessibile online, di conseguenza neanche nella repository/su Kodi)
 -  D'ora in poi, fino a quando non riusciremo a trovare un'alternativa stabile per pubblicare in sicurezza il file playlist necessario alla visione di alcuni contenuti considerati sensibili dalla piattaforma, lascieremo i file necessari alla creazione del file e la suddivisione dei link aggiornati il più possibile come facciamo tutt'ora, così che chiunque può modificarli localmente e usarli a proprio piacimento
--  Abbiamo fatto queste modifiche OBBLIGATORIE perché un provider dei contenuti che non possiamo specificare per motivi legali ha richiesto formalmente a GitHub di chiedere di cancellare completamente ogni traccia della playlist (o più specificatamente solo i loro link) anche da vecchi commit come descritto dalla policy DMCA pubblicata sul loro sito
+-  Abbiamo fatto queste modifiche **obbligatorie** perché un provider dei contenuti che non possiamo specificare per motivi legali ha richiesto formalmente a GitHub di chiedere di cancellare completamente ogni traccia della playlist (o più specificatamente solo i loro link) anche da vecchi commit come descritto dalla policy DMCA pubblicata sul loro sito
 -  In quanto noi non vogliamo alcuna ripercussione legale da parte di questo progetto, dobbiamo attenerci alle regole della policy e aderire alle richieste portate da questo provider
+-  Il branch **main** è ufficialmente archiviato e può essere utilizzato per capire i cambiamenti effettuati nel cambio di branch default
 
 ### v1.0.41-stable
 -  Resolver **EUROTV/vavoo** aggiornato a MandraKodi v1.2.252: device type desktop/electron, app version `1.3.1`, nuovo User-Agent `electron-fetch`, fallback TS via `lokke.app`
